@@ -8,7 +8,7 @@ public class JoinLaceBehaviour : MonoBehaviour
     [SerializeField] private Transform[] puntos;
     [SerializeField] private float maxLaceDistance = 10f;
 
-    private float teleportForce = 0.5f;
+    private float teleportForce = 10f;
 
     private void OnEnable()
     {
@@ -29,13 +29,13 @@ public class JoinLaceBehaviour : MonoBehaviour
     private bool canEnlace;
     private void Update()
     {
-        if ((puntos[0].position - puntos[1].position).magnitude <= maxLaceDistance)
+        if ((puntos[0].position - puntos[1].position).magnitude <= maxLaceDistance) // Comprobamos que la sombra está dentro del rango
         {
             lr.enabled = true;
             canEnlace = true;
             for (int i = 0; i < puntos.Length; i++)
             {
-                lr.SetPosition(i, puntos[i].position);
+                lr.SetPosition(i, puntos[i].position); // Renderiza la línea que los une
             }
         } else
         {
@@ -43,7 +43,7 @@ public class JoinLaceBehaviour : MonoBehaviour
             canEnlace = false;
         }
 
-        if (canEnlace && !enlaceActivated && makeTeleport.action.triggered)
+        if (canEnlace && makeTeleport.action.triggered) // Activa Enlace cuando hace click y está dentro del rango
         {
             Enlace();
         }
@@ -53,12 +53,15 @@ public class JoinLaceBehaviour : MonoBehaviour
             var shadow = puntos[1].parent;
             var shadowRigidbody = shadow.GetComponent<Rigidbody>();
             shadow.GetComponent<CapsuleCollider>().enabled = false;
-            shadowRigidbody.AddForce(director * teleportForce, ForceMode.Impulse);
+            shadowRigidbody.useGravity = false;
+            //shadowRigidbody.AddForce(director * teleportForce, ForceMode.Impulse);
+            shadow.position += director * teleportForce * Time.deltaTime;
 
-            if (Mathf.Abs(puntos[0].position.x - puntos[1].position.x) < 1f || Mathf.Abs(puntos[0].position.y - puntos[1].position.y) < 1f)
+            if (Mathf.Abs(puntos[0].position.x - puntos[1].position.x) < 0.5f && Mathf.Abs(puntos[0].position.y - puntos[1].position.y) < 0.5f)
             {
-                shadowRigidbody.AddForce(shadowRigidbody.linearVelocity * -1, ForceMode.Impulse);
+                //shadowRigidbody.AddForce(shadowRigidbody.linearVelocity * -1, ForceMode.Impulse);
                 shadow.GetComponent<CapsuleCollider>().enabled = true;
+                shadowRigidbody.useGravity = true;
                 enlaceActivated = false;
             }
         }
