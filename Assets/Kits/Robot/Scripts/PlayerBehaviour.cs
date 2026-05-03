@@ -1,7 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.PlayerSettings.SplashScreen;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -44,14 +43,15 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Move(new Vector3(rawMove.x, rawMove.y, 0));
 
-        if (rb.linearVelocity.x > maxVelocityX)
+        if (Mathf.Abs(rb.linearVelocity.x) > maxVelocityX)
         {
-            rb.linearVelocity = new Vector3(maxVelocityX, rb.linearVelocity.y, rb.linearVelocity.z);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x > 0 ? maxVelocityX : -maxVelocityX, rb.linearVelocity.y, rb.linearVelocity.z);
         }
 
-        if (jump.action.triggered)
+        if (jump.action.triggered && canJump)
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + jumpVelocity * Time.deltaTime, 0f);
+            rb.AddForce(new Vector3(0f, jumpVelocity, 0f), ForceMode.Impulse);
+            canJump = false;
         }
     }
 
@@ -59,7 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
     bool shouldTurnBack = false;
     protected void Move(Vector3 direction)
     {
-        rb.linearVelocity += new Vector3(direction.x * acceleration * Time.deltaTime, rb.linearVelocity.y, rb.linearVelocity.z);
+        rb.AddForce(direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
 
         if (direction.magnitude > 0f)
         {
@@ -91,11 +91,6 @@ public class PlayerBehaviour : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         rawMove = context.action.ReadValue<Vector2>();  //Lee le valor de la acción que lo ha llamado, indicando que esperamos leer un Vector2
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        canJump = false;
     }
 
     private void OnCollisionEnter(Collision collision)
