@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,14 +11,24 @@ public class JoinLaceBehaviour : MonoBehaviour
 
     private float teleportForce = 10f;
 
+    private bool realControls; // Define si el jugador está controlando al personaje de la chica
+    public bool onlyRealControls; // Define si sólo puede usar la habilidad la chica o también la sombra
+
+    private ChangeReality cr;
+
     private void OnEnable()
     {
         makeTeleport.action.Enable();
+
+        cr = FindFirstObjectByType<ChangeReality>();
+        cr.onChangeReality.AddListener(OnChangeReality);
     }
 
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
+        realControls = true;
+        onlyRealControls = true;
     }
 
     /*    public void SetUpLine(Transform[] points)
@@ -29,7 +40,12 @@ public class JoinLaceBehaviour : MonoBehaviour
     private bool canEnlace;
     private void Update()
     {
-        if ((puntos[0].position - puntos[1].position).magnitude <= maxLaceDistance) // Comprobamos que la sombra está dentro del rango
+        if (!onlyRealControls)
+        {
+            realControls = true;
+        }
+
+        if (Vector3.Distance(puntos[0].position, puntos[1].position) <= maxLaceDistance) // Comprobamos que la sombra está dentro del rango
         {
             lr.enabled = true;
             canEnlace = true;
@@ -43,7 +59,7 @@ public class JoinLaceBehaviour : MonoBehaviour
             canEnlace = false;
         }
 
-        if (canEnlace && makeTeleport.action.triggered) // Activa Enlace cuando hace click y está dentro del rango
+        if (realControls && canEnlace && makeTeleport.action.triggered) // Activa Enlace cuando hace click y está dentro del rango
         {
             Enlace();
         }
@@ -52,27 +68,32 @@ public class JoinLaceBehaviour : MonoBehaviour
         {
             var shadow = puntos[1].parent;
             var shadowRigidbody = shadow.GetComponent<Rigidbody>();
-            shadow.GetComponent<CapsuleCollider>().enabled = false;
-            shadowRigidbody.useGravity = false;
+            //shadowRigidbody.useGravity = false;
             //shadowRigidbody.AddForce(director * teleportForce, ForceMode.Impulse);
             shadow.position += director * teleportForce * Time.deltaTime;
 
-            if (Mathf.Abs(puntos[0].position.x - puntos[1].position.x) < 0.5f && Mathf.Abs(puntos[0].position.y - puntos[1].position.y) < 0.5f)
+            if (Vector3.Distance(destination, puntos[1].position) < 0.5f)
             {
                 //shadowRigidbody.AddForce(shadowRigidbody.linearVelocity * -1, ForceMode.Impulse);
-                shadow.GetComponent<CapsuleCollider>().enabled = true;
-                shadowRigidbody.useGravity = true;
+                //shadowRigidbody.useGravity = true;
                 enlaceActivated = false;
             }
         }
     }
 
     Vector3 director;
+    Vector3 destination;
     bool enlaceActivated;
     public void Enlace()
     {
         director = (puntos[0].position - puntos[1].position).normalized;
+        destination = puntos[0].position;
         enlaceActivated = true;
+    }
+
+    private void OnChangeReality(int newReality)
+    {
+        realControls = newReality == 6;
     }
 
     private void OnDisable()

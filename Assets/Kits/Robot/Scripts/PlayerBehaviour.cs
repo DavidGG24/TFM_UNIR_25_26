@@ -14,6 +14,8 @@ public class PlayerBehaviour : MonoBehaviour
     bool canJump = true;
     [SerializeField] float jumpVelocity = 0.5f;
 
+    public bool characterActive;
+
     private void OnEnable()
     {
         move.action.Enable();
@@ -30,6 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        characterActive = gameObject.layer == 6;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,17 +44,20 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(new Vector3(rawMove.x, rawMove.y, 0));
-
-        if (Mathf.Abs(rb.linearVelocity.x) > maxVelocityX)
+        if (characterActive)
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x > 0 ? maxVelocityX : -maxVelocityX, rb.linearVelocity.y, rb.linearVelocity.z);
-        }
+            Move(new Vector3(rawMove.x, rawMove.y, 0));
 
-        if (jump.action.triggered && canJump)
-        {
-            rb.AddForce(new Vector3(0f, jumpVelocity, 0f), ForceMode.Impulse);
-            canJump = false;
+            if (Mathf.Abs(rb.linearVelocity.x) > maxVelocityX)
+            {
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x > 0 ? maxVelocityX : -maxVelocityX, rb.linearVelocity.y, 0f);
+            }
+
+            if (jump.action.triggered && canJump)
+            {
+                rb.AddForce(new Vector3(0f, jumpVelocity, 0f), ForceMode.Impulse);
+                canJump = false;
+            }
         }
     }
 
@@ -65,14 +71,16 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (direction.normalized.x != lastMoveDirection.x)
             {
+                transform.rotation = Quaternion.Inverse(transform.rotation);
+                transform.localPosition = direction.x > 0 ? new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z) : new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
                 shouldTurnBack = true;
                 lastMoveDirection = direction;
             }
 
             if (shouldTurnBack)
             {
-                animator.SetTrigger("TurnBack");
-                rb.linearVelocity = Vector3.zero;
+                //animator.SetTrigger("TurnBack");
+                rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
             } else if (rb.linearVelocity.x == 0f)
             {
                 rb.linearVelocity = new Vector3(5f * direction.normalized.x, rb.linearVelocity.y, 0f);
@@ -80,11 +88,10 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetBool("IsMoving", true);
             shouldTurnBack = false;
         }
-
         else
         {
             animator.SetBool("IsMoving", false);
-            rb.linearVelocity = Vector3.zero;
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
         }
     }
 
