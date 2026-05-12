@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,7 +13,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float maxVelocityX = 10.0f;
 
     bool canJump = true;
-    [SerializeField] float jumpVelocity = 0.5f;
+    bool isJumping = false;
+    private bool isJumpingCanceled;
+    [SerializeField] float jumpVelocity = 50f;
 
     public bool characterActive;
 
@@ -24,6 +27,26 @@ public class PlayerBehaviour : MonoBehaviour
         move.action.canceled += OnMove;
 
         jump.action.Enable();
+        jump.action.started += OnJump;
+        jump.action.performed += OnJump;
+        jump.action.canceled += OnStopJump;
+    }
+
+    private void OnStopJump(InputAction.CallbackContext context)
+    {
+        if (isJumping)
+        {
+            isJumpingCanceled = true;
+        }
+    }
+
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (canJump)
+        {
+            isJumping = true;
+            canJump = false;
+        }
     }
 
     Rigidbody rb;
@@ -31,17 +54,17 @@ public class PlayerBehaviour : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>(); 
         characterActive = gameObject.layer == 6;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         lastMoveDirection = Vector3.right;
     }
 
-    // Update is called once per frame
+    int framesInTurning = 0;
+    float secondsInJump = 0;
     void Update()
     {
         if (characterActive)
@@ -53,10 +76,44 @@ public class PlayerBehaviour : MonoBehaviour
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x > 0 ? maxVelocityX : -maxVelocityX, rb.linearVelocity.y, 0f);
             }
 
-            if (jump.action.triggered && canJump)
+            //if (jump.action.triggered && canJump)
+            //{
+            //    //rb.AddForce(new Vector3(0f, jumpVelocity, 0f), ForceMode.Impulse);
+            //    isJumping = true;
+            //    canJump = false;
+            //}
+
+            if (isJumping && secondsInJump < 0.5f && !isJumpingCanceled)
             {
-                rb.AddForce(new Vector3(0f, jumpVelocity, 0f), ForceMode.Impulse);
-                canJump = false;
+                secondsInJump += Time.deltaTime;
+                rb.AddForce(new Vector3(0f, jumpVelocity * Time.deltaTime, 0f), ForceMode.Impulse);
+            } else if (isJumping && secondsInJump >= 0.5f || isJumping && isJumpingCanceled)
+            {
+                isJumping = false;
+                secondsInJump = 0f;
+                isJumpingCanceled = false;
+                rb.AddForce(new Vector3(0f, -rb.linearVelocity.y, 0f), ForceMode.Impulse);
+            }
+
+            //if (isJumpingCanceled)
+            //{
+            //    rb.AddForce(new Vector3(0f, -rb.linearVelocity.y, 0f), ForceMode.Impulse);
+            //    secondsInJump = 0f;
+            //    isJumpingCanceled = false;
+            //}
+
+            if (shouldTurnBack)
+            {
+                if (framesInTurning < 60)
+                {
+                    framesInTurning++;
+                }
+                else
+                {
+                    framesInTurning = 0;
+                    transform.rotation = Quaternion.Inverse(transform.rotation);
+                    shouldTurnBack = false;
+                }
             }
         }
     }
@@ -71,8 +128,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (direction.normalized.x != lastMoveDirection.x)
             {
-                transform.rotation = Quaternion.Inverse(transform.rotation);
-                transform.localPosition = direction.x > 0 ? new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z) : new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+                //transform.rotation = Quaternion.Inverse(transform.rotation);
+                //transform.localPosition = direction.x > 0 ? new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z) : new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
+                animator.SetTrigger("TurnBack");
+                //transform.rotation = Quaternion.Inverse(transform.rotation);
+                rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 shouldTurnBack = true;
                 lastMoveDirection = direction;
             }
@@ -80,13 +140,16 @@ public class PlayerBehaviour : MonoBehaviour
             if (shouldTurnBack)
             {
                 //animator.SetTrigger("TurnBack");
-                rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
+                //rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
             } else if (rb.linearVelocity.x == 0f)
             {
                 rb.linearVelocity = new Vector3(5f * direction.normalized.x, rb.linearVelocity.y, 0f);
+            } else
+            {
+
+                animator.SetBool("IsMoving", true);
             }
-            animator.SetBool("IsMoving", true);
-            shouldTurnBack = false;
+            //shouldTurnBack = false;
         }
         else
         {
@@ -101,6 +164,11 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
+    {
+        //canJump = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         canJump = true;
     }
