@@ -15,7 +15,11 @@ public class PlayerBehaviour : MonoBehaviour
     bool canJump = true;
     bool isJumping = false;
     private bool isJumpingCanceled;
-    [SerializeField] float jumpVelocity = 50f;
+    [SerializeField] float jumpVelocity = 30f;
+    [SerializeField] float fallMultiplier = 3f;
+    [SerializeField] float lowJumpMultiplier = 2.5f;
+    public LayerMask GroundLayer;
+
 
     public bool characterActive;
 
@@ -42,7 +46,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (canJump)
+        if (canJump && CheckIsOnGround())
         {
             isJumping = true;
             canJump = false;
@@ -61,15 +65,25 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         lastMoveDirection = Vector3.right;
+
+        if (!characterActive)
+        {
+            GetComponent<Collider>().enabled = false;
+            GetComponent<Rigidbody>().useGravity = false;
+        }
     }
 
-    int framesInTurning = 0;
+    float secondsInTurning = 0;
     float secondsInJump = 0;
     void Update()
     {
-        if (characterActive)
+        if (true)
         {
             Move(new Vector3(rawMove.x, rawMove.y, 0));
+
+            Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position, Vector3.down * 0.5f, Color.red);
+            Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position + new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
+            Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position - new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
 
             if (Mathf.Abs(rb.linearVelocity.x) > maxVelocityX)
             {
@@ -87,12 +101,18 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 secondsInJump += Time.deltaTime;
                 rb.AddForce(new Vector3(0f, jumpVelocity * Time.deltaTime, 0f), ForceMode.Impulse);
-            } else if (isJumping && secondsInJump >= 0.5f || isJumping && isJumpingCanceled)
+            } else if (isJumping && secondsInJump >= 0.5f)
             {
-                isJumping = false;
-                secondsInJump = 0f;
-                isJumpingCanceled = false;
-                rb.AddForce(new Vector3(0f, -rb.linearVelocity.y, 0f), ForceMode.Impulse);
+                //isJumping = false;
+                //secondsInJump = 0f;
+                //isJumpingCanceled = false;
+                rb.AddForce(new Vector3(0f, Physics.gravity.y * (fallMultiplier -1) * Time.deltaTime, 0f), ForceMode.Impulse);
+            } else if (isJumping && isJumpingCanceled)
+            {
+                //isJumping = false;
+                //secondsInJump = 0f;
+                //isJumpingCanceled = false;
+                rb.AddForce(new Vector3(0f, Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f), ForceMode.Impulse);
             }
 
             //if (isJumpingCanceled)
@@ -104,13 +124,13 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (shouldTurnBack)
             {
-                if (framesInTurning < 60)
+                if (secondsInTurning < 0.5f)
                 {
-                    framesInTurning++;
+                    secondsInTurning++;
                 }
                 else
                 {
-                    framesInTurning = 0;
+                    secondsInTurning = 0;
                     transform.rotation = Quaternion.Inverse(transform.rotation);
                     shouldTurnBack = false;
                 }
@@ -170,7 +190,20 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canJump = true;
+        if (GroundLayer == (1 << other.gameObject.layer))
+        {
+            canJump = true;
+            isJumping = false;
+            isJumpingCanceled = false;
+            secondsInJump = 0f;
+        }
+    }
+
+    private bool CheckIsOnGround()
+    {
+        return Physics.Raycast(transform.GetComponentInChildren<BoxCollider>().transform.position, Vector3.down, 0.5f, GroundLayer)
+            || Physics.Raycast(transform.GetComponentInChildren<BoxCollider>().transform.position + new Vector3(0.3f, 0f, 0f), Vector3.down, 0.5f, GroundLayer)
+            || Physics.Raycast(transform.GetComponentInChildren<BoxCollider>().transform.position - new Vector3(0.3f, 0f, 0f), Vector3.down, 0.5f, GroundLayer);
     }
 
     private void OnDisable()

@@ -7,11 +7,12 @@ TagManager:
   - DamageObstacle
   - Enemy
   - PlayerFeet
+  - FloatableObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - RealObstacle
