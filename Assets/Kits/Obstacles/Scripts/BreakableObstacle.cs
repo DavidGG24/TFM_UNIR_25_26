@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BreakableObstacle : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class BreakableObstacle : MonoBehaviour
     }
 
     [SerializeField] BreakingTypes breakingType;
-    [SerializeField] ChangeReality cr;
+    [SerializeField] private ActivatorBehaviour activator;
 
     private void OnEnable()
     {
         if (breakingType == BreakingTypes.withEvent)
         {
-            cr.onChangeReality.AddListener(InvokeDestroy);
+            activator.onActivate.AddListener(InvokeDestroy);
         }
     }
 
@@ -46,7 +47,7 @@ public class BreakableObstacle : MonoBehaviour
     {
         if (breakingType == BreakingTypes.withTrigger && other.CompareTag("Player"))
         {
-            InvokeDestroy(1);
+            InvokeDestroy(true);
         }
     }
 
@@ -54,12 +55,15 @@ public class BreakableObstacle : MonoBehaviour
     {
         if (breakingType == BreakingTypes.withCollision && collision.collider.CompareTag("Player"))
         {
-            InvokeDestroy(1);
+            InvokeDestroy(true);
         }
     }
 
-    private void InvokeDestroy(int i)
+    private void InvokeDestroy(bool destroyed)
     {
-        Destroy(gameObject);
+        if (destroyed)
+        {
+            Destroy(gameObject);
+        }
     }
 }

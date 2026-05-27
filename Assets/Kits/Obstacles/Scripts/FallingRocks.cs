@@ -12,7 +12,7 @@ public class FallingRocks : MonoBehaviour
         timer = 0f;
     }
     
-    void Update()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
 

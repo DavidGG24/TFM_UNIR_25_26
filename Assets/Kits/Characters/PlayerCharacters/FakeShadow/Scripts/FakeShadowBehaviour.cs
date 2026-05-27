@@ -33,7 +33,7 @@ public class FakeShadowBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move(new Vector3(rawMove.x, rawMove.y, 0));
         transform.position = playerTransform.position;

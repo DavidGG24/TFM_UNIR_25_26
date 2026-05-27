@@ -41,6 +41,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (isJumping)
         {
             isJumpingCanceled = true;
+            CheckFalling();
         }
     }
 
@@ -50,6 +51,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             isJumping = true;
             canJump = false;
+            animator.SetTrigger("IsJumping");
+            animator.SetBool("IsLanded", false);
         }
     }
 
@@ -75,9 +78,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     float secondsInTurning = 0;
     float secondsInJump = 0;
-    void Update()
+    void FixedUpdate()
     {
-        if (true)
+        if (characterActive)
         {
             Move(new Vector3(rawMove.x, rawMove.y, 0));
 
@@ -106,14 +109,17 @@ public class PlayerBehaviour : MonoBehaviour
                 //isJumping = false;
                 //secondsInJump = 0f;
                 //isJumpingCanceled = false;
+                CheckFalling();
                 rb.AddForce(new Vector3(0f, Physics.gravity.y * (fallMultiplier -1) * Time.deltaTime, 0f), ForceMode.Impulse);
-            } else if (isJumping && isJumpingCanceled)
+            } else if ((isJumping && isJumpingCanceled) || !CheckIsOnGround())
             {
                 //isJumping = false;
                 //secondsInJump = 0f;
                 //isJumpingCanceled = false;
+                CheckFalling();
                 rb.AddForce(new Vector3(0f, Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f), ForceMode.Impulse);
             }
+
 
             //if (isJumpingCanceled)
             //{
@@ -196,6 +202,8 @@ public class PlayerBehaviour : MonoBehaviour
             isJumping = false;
             isJumpingCanceled = false;
             secondsInJump = 0f;
+            animator.SetBool("IsLanded", true);
+            isAlreadyFalling = false;
         }
     }
 
@@ -204,6 +212,16 @@ public class PlayerBehaviour : MonoBehaviour
         return Physics.Raycast(transform.GetComponentInChildren<BoxCollider>().transform.position, Vector3.down, 0.5f, GroundLayer)
             || Physics.Raycast(transform.GetComponentInChildren<BoxCollider>().transform.position + new Vector3(0.3f, 0f, 0f), Vector3.down, 0.5f, GroundLayer)
             || Physics.Raycast(transform.GetComponentInChildren<BoxCollider>().transform.position - new Vector3(0.3f, 0f, 0f), Vector3.down, 0.5f, GroundLayer);
+    }
+
+    private bool isAlreadyFalling = false;
+    private void CheckFalling()
+    {
+        if (!isAlreadyFalling)
+        {
+            animator.SetTrigger("IsFalling");
+            isAlreadyFalling = true;
+        }
     }
 
     private void OnDisable()

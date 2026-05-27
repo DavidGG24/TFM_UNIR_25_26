@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static ChangeReality;
 
 public class JoinLaceBehaviour : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class JoinLaceBehaviour : MonoBehaviour
         }*/
 
     private bool canEnlace;
-    private void Update()
+    private void FixedUpdate()
     {
         if (!onlyRealControls)
         {
@@ -91,9 +92,9 @@ public class JoinLaceBehaviour : MonoBehaviour
         enlaceActivated = true;
     }
 
-    private void OnChangeReality(int newReality)
+    private void OnChangeReality(KindOfReality newReality)
     {
-        realControls = newReality == 6;
+        realControls = newReality == KindOfReality.Real;
     }
 
     private void OnDisable()

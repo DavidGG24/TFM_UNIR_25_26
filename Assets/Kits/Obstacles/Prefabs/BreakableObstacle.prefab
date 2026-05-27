@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3886000501995995153}
   - component: {fileID: 7219556202685590745}
   - component: {fileID: 5366880144225082072}
+  - component: {fileID: 2559546679695147684}
   m_Layer: 0
   m_Name: BreakableObstacle
   m_TagString: Untagged
@@ -126,3 +127,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BreakableObstacle
   breakingType: 0
+  cr: {fileID: 0}
+--- !u!136 &2559546679695147684
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270702587830284796}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1764706
+  m_Height: 11
+  m_Direction: 1
+  m_Center: {x: 0.32352942, y: 3, z: 0}

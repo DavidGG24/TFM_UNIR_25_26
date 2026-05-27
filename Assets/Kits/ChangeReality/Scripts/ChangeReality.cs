@@ -4,12 +4,19 @@ using UnityEngine.InputSystem;
 
 public class ChangeReality : MonoBehaviour
 {
-    [SerializeField] private InputActionReference cambiar;
-    [SerializeField] private GameObject realCharacter;
-    [SerializeField] private GameObject shadowCharacter;
-    public UnityEvent<int> onChangeReality;
+    public enum KindOfReality
+    {
+        Real,
+        Shadow,
+        Both
+    }
 
-    public int playerLayer;
+    [SerializeField] private InputActionReference cambiar;
+    //[SerializeField] private GameObject realCharacter;
+    //[SerializeField] private GameObject shadowCharacter;
+    public UnityEvent<KindOfReality> onChangeReality;
+
+    private KindOfReality playerLayer;
 
     private void OnEnable()
     {
@@ -19,7 +26,7 @@ public class ChangeReality : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerLayer = realCharacter.layer;
+        playerLayer = KindOfReality.Real;
     }
 
     // Update is called once per frame
@@ -27,12 +34,12 @@ public class ChangeReality : MonoBehaviour
     {
         if (cambiar.action.triggered)
         {
-            if (playerLayer == realCharacter.layer)
+            if (playerLayer == KindOfReality.Real)
             {
-                playerLayer = shadowCharacter.layer;
+                playerLayer = KindOfReality.Shadow;
             } else
             {
-                playerLayer = realCharacter.layer;
+                playerLayer = KindOfReality.Real;
             }
 
             onChangeReality.Invoke(playerLayer);
