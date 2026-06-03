@@ -10,29 +10,40 @@ public class ApplyRealityLogic : MonoBehaviour
     public KindOfReality myReality;
 
 
-    private ChangeReality cr;
+    private ChangeReality[] crs;
 
     private void OnEnable()
     {
-        cr = FindFirstObjectByType<ChangeReality>();
-        if (cr == null )
+        crs = FindObjectsByType<ChangeReality>(FindObjectsSortMode.None);
+        if (crs.Length == 0 )
         {
             Debug.LogWarning("Definición de realidad no encontrada");
         }
 
-        if (gameObject.CompareTag("Player"))
+        foreach (ChangeReality cr in crs)
         {
-            cr.onChangeReality.AddListener(OnChangeRealityPlayer);
-        } else
-        {
-            cr.onChangeReality.AddListener(OnChangeReality);
+            if (gameObject.CompareTag("Player"))
+            {
+                cr.onChangeReality.AddListener(OnChangeRealityPlayer);
+            }
+            else if (gameObject.CompareTag("Mirror"))
+            {
+                cr.onChangeReality.AddListener(OnChangeRealityMirror);
+            }
+            else
+            {
+                cr.onChangeReality.AddListener(OnChangeReality);
+            }
         }
     }
 
     private KindOfReality currentReality;
     private void Awake()
     {
-        GetComponent<Collider>().enabled = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
+        if (!gameObject.CompareTag("Mirror"))
+        {
+            GetComponent<Collider>().enabled = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
+        }
         if (GetComponent<Rigidbody>())
         {
             GetComponent<Rigidbody>().useGravity = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
@@ -54,7 +65,7 @@ public class ApplyRealityLogic : MonoBehaviour
 
         if (myReality == newReality)
         {
-            gameObject.GetComponent<BoxCollider>().enabled = true;
+            gameObject.GetComponent<Collider>().enabled = true;
             gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
         } else if (myReality == KindOfReality.Both)
         {
@@ -68,7 +79,7 @@ public class ApplyRealityLogic : MonoBehaviour
             }
         } else
         {
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
         }
     }
@@ -113,5 +124,23 @@ public class ApplyRealityLogic : MonoBehaviour
         }
 
         currentReality = newReality;
+    }
+
+    private void OnChangeRealityMirror(KindOfReality newReality)
+    {
+        if (myReality == newReality || myReality == KindOfReality.Both)
+        {
+            //GetComponent<ChangeReality>().enabled = true;
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+            transform.GetChild(1).GetComponent<Camera>().enabled = true;
+        }
+        else
+        {
+            //GetComponent<ChangeReality>().enabled = false;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+            transform.GetChild(1).GetComponent<Camera>().enabled = false;
+        }
     }
 }

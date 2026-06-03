@@ -25,7 +25,8 @@ public class FloatingWater : MonoBehaviour
                 if (objectsFloating[i].transform.position.y < ySuperficie)
                 {
                     float impulsoFlote = Mathf.Clamp01(ySuperficie - objectsFloating[i].transform.position.y / objectsCurrentPosition[i]) * indiceFlotacion;
-                    rb.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * impulsoFlote, 0f), ForceMode.Acceleration);
+                    //rb.AddForce(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * impulsoFlote, 0f), ForceMode.Acceleration);
+                    objectsFloating[i].transform.position += Vector3.up * Mathf.Abs(Physics.gravity.y) * impulsoFlote * Time.deltaTime;
                 }
             }
         }

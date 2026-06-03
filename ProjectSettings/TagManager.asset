@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerFeet
   - FloatableObject
+  - Mirror
   layers:
   - Default
   - TransparentFX

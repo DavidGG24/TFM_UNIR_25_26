@@ -1,12 +1,15 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
+
+    public UnityEvent MakeRespawn;
 
     Vector2 rawMove;
     [SerializeField] float acceleration = 0.5f;
@@ -205,6 +208,12 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetBool("IsLanded", true);
             isAlreadyFalling = false;
         }
+    }
+
+    public void OnDeath()
+    {
+        Debug.Log("AUCH!");
+        MakeRespawn.Invoke();
     }
 
     private bool CheckIsOnGround()
