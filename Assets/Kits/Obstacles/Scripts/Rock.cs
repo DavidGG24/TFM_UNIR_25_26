@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("RealObstacle") || other.gameObject.layer == LayerMask.NameToLayer("ShadowObstacle") || other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("RealObstacle") || collision.gameObject.layer == LayerMask.NameToLayer("ShadowObstacle") || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Destroy(gameObject);
         }

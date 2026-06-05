@@ -38,7 +38,7 @@ public class EnemyFocus : EnemyBase
 
         if (Vector3.Distance(body.transform.position, targetPosition) > stopDistance)
         {
-            GetYourAssInTheTarget();
+            FocusOnTheTarget();
         } else if (Vector3.Distance(body.transform.position, targetPosition) <= stopDistance && !isReturning)
         {
             targetPosition = transform.position;
@@ -62,7 +62,7 @@ public class EnemyFocus : EnemyBase
     }
 
     Vector3 director;
-    private void GetYourAssInTheTarget()
+    private void FocusOnTheTarget()
     {
         director = (targetPosition - body.transform.position).normalized;
         body.transform.position += director * velocity * Time.deltaTime;
