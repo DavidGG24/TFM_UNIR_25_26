@@ -113,7 +113,7 @@ public class PlayerBehaviour : MonoBehaviour
                 //secondsInJump = 0f;
                 //isJumpingCanceled = false;
                 CheckFalling();
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime, 0f);
+                //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime, 0f);
                 //rb.AddForce(new Vector3(0f, Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime, 0f), ForceMode.Impulse);
             } else if ((isJumping && isJumpingCanceled) || !CheckIsOnGround())
             {
@@ -121,7 +121,7 @@ public class PlayerBehaviour : MonoBehaviour
                 //secondsInJump = 0f;
                 //isJumpingCanceled = false;
                 CheckFalling();
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f);
+                //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f);
                 //rb.AddForce(new Vector3(0f, Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f), ForceMode.VelocityChange);
             }
 
@@ -146,7 +146,8 @@ public class PlayerBehaviour : MonoBehaviour
     protected void Move(Vector3 direction)
     {
         //rb.AddForce(direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
-        rb.linearVelocity = direction.normalized * maxVelocityX;
+        rb.linearVelocity = new Vector3(direction.normalized.x * maxVelocityX, rb.linearVelocity.y, 0f);
+        //rb.linearVelocity = direction.normalized * maxVelocityX;
 
         if (direction.magnitude > 0f)
         {
@@ -202,6 +203,7 @@ public class PlayerBehaviour : MonoBehaviour
             secondsInJump = 0f;
             animator.SetBool("IsLanded", true);
             isAlreadyFalling = false;
+            GetComponent<ConstantForce>().enabled = false;
         }
     }
 
@@ -225,6 +227,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             animator.SetTrigger("IsFalling");
             isAlreadyFalling = true;
+            GetComponent<ConstantForce>().enabled = true;
         }
     }
 

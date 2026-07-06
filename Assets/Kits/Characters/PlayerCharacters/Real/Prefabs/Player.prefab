@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 4923408038227558373}
   - component: {fileID: 4709744468311312509}
   - component: {fileID: 6858475009804929720}
+  - component: {fileID: 5502168295736402079}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -189,7 +190,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8802497511157436784}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ca80bba8c4ee66e429a94ed15466aac4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -246,7 +247,7 @@ MonoBehaviour:
       m_Calls: []
   acceleration: 10
   maxVelocityX: 5
-  jumpVelocity: 7.5
+  jumpVelocity: 6
   fallMultiplier: 40
   lowJumpMultiplier: 35
   GroundLayer:
@@ -269,6 +270,18 @@ MonoBehaviour:
   enabledMaterial: {fileID: 2100000, guid: 885ec15e8ce33724fa7e4f3b3330f30b, type: 2}
   camera: {fileID: 0}
   myReality: 2
+--- !u!75 &5502168295736402079
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802497511157436784}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -13, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1001 &4877864485322646988
 PrefabInstance:
   m_ObjectHideFlags: 0
