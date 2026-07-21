@@ -10,7 +10,7 @@ public class ChangeSceneBehaviour : MonoBehaviour
         {
             DataPersistanceManager.instance.NewGame();
             DataPersistanceManager.instance.SaveGame();
-            SceneManager.LoadScene(targetScene);
+            SceneManager.LoadSceneAsync(targetScene);
         }
     }
 }
