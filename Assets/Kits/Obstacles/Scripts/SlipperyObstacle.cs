@@ -16,11 +16,8 @@ public class SlipperyObstacle : MonoBehaviour
     {
         if (isPlayerOver)
         {
+            playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, -10f, 0f);
             playerRb.AddForce(new Vector3(0f, -1f), ForceMode.Impulse);
-        } else if (playerRb)
-        {
-            playerRb.AddForce(new Vector3(0f, -playerRb.linearVelocity.y), ForceMode.Impulse);
-            playerRb = null;
         }
     }
 
