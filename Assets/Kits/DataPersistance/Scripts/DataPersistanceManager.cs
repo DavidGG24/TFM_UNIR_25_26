@@ -36,6 +36,8 @@ public class DataPersistanceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+
+        Debug.Log("Creada nueva posición: " + gameData.playerPosition);
     }
 
     public void LoadGame()
@@ -62,23 +64,21 @@ public class DataPersistanceManager : MonoBehaviour
         }
     }
 
-    public AsyncOperation SaveGame()
+    public void SaveGame()
     {
         if (fileName != "")
         {
             // Pasar los datos a otros scripts para que los actualicen
             foreach (IDataPersistance dataPersistanceObj in dataPersistanceObjects)
             {
-                dataPersistanceObj.SaveData(ref gameData);
+                dataPersistanceObj.SaveData(ref this.gameData);
             }
 
             Debug.Log("Guardada posición: " + gameData.playerPosition);
 
             // Guardar los datos a un archivo usando el data handler
-            dataHandler.Save(gameData);
+            dataHandler.Save(this.gameData);
         }
-
-        return null;
     }
 
     private void OnApplicationQuit()
