@@ -62,7 +62,7 @@ public class DataPersistanceManager : MonoBehaviour
         }
     }
 
-    public void SaveGame()
+    public AsyncOperation SaveGame()
     {
         if (fileName != "")
         {
@@ -77,6 +77,8 @@ public class DataPersistanceManager : MonoBehaviour
             // Guardar los datos a un archivo usando el data handler
             dataHandler.Save(gameData);
         }
+
+        return null;
     }
 
     private void OnApplicationQuit()
