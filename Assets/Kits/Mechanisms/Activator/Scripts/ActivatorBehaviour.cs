@@ -9,6 +9,7 @@ public class ActivatorBehaviour : MonoBehaviour
     public UnityEvent<bool> onActivate;
     private bool estoyActivado;
     private bool jugadorDentro;
+    private Animator animator;
 
     private void OnEnable()
     {
@@ -19,6 +20,7 @@ public class ActivatorBehaviour : MonoBehaviour
     {
         estoyActivado = false;
         jugadorDentro = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,12 +32,14 @@ public class ActivatorBehaviour : MonoBehaviour
             {
                 estoyActivado = true;
                 onActivate.Invoke(estoyActivado);
+                animator.SetBool("Activated", true);
                 Debug.Log("Estoy activado");
             }
             else if (multiActivacion)
             {
                 estoyActivado = false;
                 onActivate.Invoke(estoyActivado);
+                animator.SetBool("Activated", false);
             }
         }
     }
