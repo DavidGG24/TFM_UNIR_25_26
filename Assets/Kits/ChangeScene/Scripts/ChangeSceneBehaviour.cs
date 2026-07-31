@@ -22,8 +22,9 @@ public class ChangeSceneBehaviour : SavePoint // Hereda de SavePoint para poder 
 
     IEnumerator LoadSceneAsync(int sceneId) // Visualiza pantalla de carga y carga la escena, mostrando el progreso
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
         loadingScreen.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
 
         while (!operation.isDone)
         {
