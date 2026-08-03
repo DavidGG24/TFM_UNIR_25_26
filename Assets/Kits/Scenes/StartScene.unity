@@ -25438,6 +25438,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1424262724}
     m_Modifications:
     - target: {fileID: -4687874286248288530, guid: 1ce8549e38e165946a0d55b4c80b655d, type: 3}
+      propertyPath: targetScene
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4687874286248288530, guid: 1ce8549e38e165946a0d55b4c80b655d, type: 3}
       propertyPath: loadingScreen
       value: 
       objectReference: {fileID: 1909851621}

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DataPersistanceManager : MonoBehaviour
 {
@@ -54,14 +55,22 @@ public class DataPersistanceManager : MonoBehaviour
                 NewGame();
             }
 
-            // Llevar los datos cargados a los scripts que los necesiten
-            foreach (IDataPersistance dataPersistanceObj in dataPersistanceObjects)
+            if (dataPersistanceObjects.Count > 0)
             {
-                dataPersistanceObj.LoadData(gameData);
+                // Llevar los datos cargados a los scripts que los necesiten
+                foreach (IDataPersistance dataPersistanceObj in dataPersistanceObjects)
+                {
+                    dataPersistanceObj.LoadData(gameData);
+                }
             }
 
             Debug.Log("Cargada posición: " + gameData.playerPosition);
         }
+    }
+
+    public GameData RetrieveDataCopy()
+    {
+        return this.gameData;
     }
 
     public void SaveGame()
@@ -75,6 +84,10 @@ public class DataPersistanceManager : MonoBehaviour
             }
 
             Debug.Log("Guardada posición: " + gameData.playerPosition);
+
+            this.gameData.level = SceneManager.GetActiveScene().buildIndex;
+
+            Debug.Log("Guardado nivel: " + gameData.level);
 
             // Guardar los datos a un archivo usando el data handler
             dataHandler.Save(this.gameData);
