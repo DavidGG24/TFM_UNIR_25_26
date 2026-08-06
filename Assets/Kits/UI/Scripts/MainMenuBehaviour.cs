@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class MainMenuBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject title;
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Image loadingBarFill;
     [SerializeField] private GameObject mainMenu;
@@ -26,18 +27,13 @@ public class MainMenuBehaviour : MonoBehaviour
         settingsButton.onClick.AddListener(OpenSettings);
         exitButton.onClick.AddListener(ExitGame);
 
-        if (continueButton.enabled)
-        {
-            EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
-        } else
-        {
-            EventSystem.current.SetSelectedGameObject(newGameButton.gameObject);
-        }
+        StartCoroutine(WaitForLoad());
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (EventSystem.current.currentSelectedGameObject != null)
         {
             lastSelectedObject = EventSystem.current.currentSelectedGameObject;
@@ -52,6 +48,7 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         Debug.Log("Ejecutado start new game");
         DataPersistanceManager.instance.NewGame();
+        DataPersistanceManager.instance.SaveGame();
         gameData = DataPersistanceManager.instance.RetrieveDataCopy();
         StartCoroutine(LoadSceneAsync(gameData.level));
     }
@@ -76,6 +73,7 @@ public class MainMenuBehaviour : MonoBehaviour
 
     IEnumerator LoadSceneAsync(int sceneId) // Visualiza pantalla de carga y carga la escena, mostrando el progreso
     {
+        title.SetActive(false);
         loadingScreen.SetActive(true);
         mainMenu.SetActive(false);
         yield return new WaitForSeconds(1f);
@@ -86,6 +84,22 @@ public class MainMenuBehaviour : MonoBehaviour
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f); // Carga tan rápido que no se ve, pero devuelve el progreso de la carga
             loadingBarFill.fillAmount = progressValue;
             yield return null;
+        }
+    }
+
+    IEnumerator WaitForLoad()
+    {
+        yield return new WaitForEndOfFrame();
+
+        continueButton.interactable = DataPersistanceManager.instance.RetrieveDataCopy() != null;
+
+        if (continueButton.interactable)
+        {
+            EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(newGameButton.gameObject);
         }
     }
 

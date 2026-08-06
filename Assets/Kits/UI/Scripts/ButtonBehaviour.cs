@@ -24,5 +24,10 @@ public class ButtonBehaviour : MonoBehaviour
         {
             texto.color = Color.black;
         }
+
+        if (!boton.interactable)
+        {
+            texto.color = new Color(0.5f, 0.5f, 0.5f);
+        }
     }
 }

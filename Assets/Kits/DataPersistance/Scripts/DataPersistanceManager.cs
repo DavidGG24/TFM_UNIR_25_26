@@ -49,11 +49,11 @@ public class DataPersistanceManager : MonoBehaviour
             this.gameData = dataHandler.Load();
 
             // si no hay datos que se puedan cargar, se inicializa a los valores por defecto.
-            if (this.gameData == null)
-            {
-                Debug.Log("No se han encontrado datos. Inicializando a valores por defecto...");
-                NewGame();
-            }
+            //if (this.gameData == null)
+            //{
+            //    Debug.Log("No se han encontrado datos. Inicializando a valores por defecto...");
+            //    NewGame();
+            //}
 
             if (dataPersistanceObjects.Count > 0)
             {
@@ -85,7 +85,7 @@ public class DataPersistanceManager : MonoBehaviour
 
             Debug.Log("Guardada posición: " + gameData.playerPosition);
 
-            this.gameData.level = SceneManager.GetActiveScene().buildIndex;
+            this.gameData.level = SceneManager.GetActiveScene().buildIndex == 0 ? 1 : SceneManager.GetActiveScene().buildIndex;
 
             Debug.Log("Guardado nivel: " + gameData.level);
 
