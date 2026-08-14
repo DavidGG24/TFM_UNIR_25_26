@@ -67,6 +67,10 @@ public class ApplyRealityLogic : MonoBehaviour
         {
             gameObject.GetComponent<Collider>().enabled = true;
             gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
+            if (transform.childCount > 0)
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
+            }
         } else if (myReality == KindOfReality.Both)
         {
             if (newReality == KindOfReality.Real)
@@ -81,6 +85,10 @@ public class ApplyRealityLogic : MonoBehaviour
         {
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
+            if (transform.childCount > 0)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
     }
 
