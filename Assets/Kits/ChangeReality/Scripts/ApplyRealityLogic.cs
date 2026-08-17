@@ -40,7 +40,7 @@ public class ApplyRealityLogic : MonoBehaviour
     private KindOfReality currentReality;
     private void Awake()
     {
-        if (!gameObject.CompareTag("Mirror"))
+        if (!gameObject.CompareTag("Mirror") && GetComponent<Collider>())
         {
             GetComponent<Collider>().enabled = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
         }
@@ -54,7 +54,7 @@ public class ApplyRealityLogic : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (myReality != currentReality && myReality != KindOfReality.Both && gameObject.GetComponent<Rigidbody>() != null)
+        if (myReality != currentReality && myReality != KindOfReality.Both && gameObject.GetComponent<Rigidbody>())
         {
             gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
