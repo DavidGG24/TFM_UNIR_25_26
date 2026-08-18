@@ -78,6 +78,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4248853298932738355, guid: 761d83c5f8ba7444aa523e0395648e2b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6453320994027296651, guid: 761d83c5f8ba7444aa523e0395648e2b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.33333334
@@ -143,6 +147,10 @@ PrefabInstance:
     - target: {fileID: 3407177320782511335, guid: 9541074820c134742b8e383243939b4b, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767337816052047154, guid: 9541074820c134742b8e383243939b4b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4981617044553247379, guid: 9541074820c134742b8e383243939b4b, type: 3}
       propertyPath: m_LocalScale.x
@@ -226,6 +234,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1469666228469976523}
     m_Modifications:
+    - target: {fileID: 3100939511282723914, guid: 254f86c89479a384b949e5b18aaa76af, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3461082827130752415, guid: 254f86c89479a384b949e5b18aaa76af, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -304,6 +316,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1469666228469976523}
     m_Modifications:
+    - target: {fileID: 75754634259553100, guid: 50b37363d0b965c4e840b98445408cff, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 234758989046793055, guid: 50b37363d0b965c4e840b98445408cff, type: 3}
       propertyPath: m_Name
       value: Rock 3
@@ -433,6 +449,10 @@ PrefabInstance:
     - target: {fileID: 2041598457383476368, guid: de9aeece11e41fe4d89e2f7ccb5e6182, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205114455351073801, guid: de9aeece11e41fe4d89e2f7ccb5e6182, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3997550421429468636, guid: de9aeece11e41fe4d89e2f7ccb5e6182, type: 3}
       propertyPath: m_Layer

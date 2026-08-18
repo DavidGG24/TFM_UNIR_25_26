@@ -21,7 +21,7 @@ public class MechanismPlatformBehaviour : MonoBehaviour
         if (activado)
         {
             GetComponent<MeshRenderer>().enabled = true;
-            GetComponent <Collider>().isTrigger = false;
+            GetComponent<Collider>().isTrigger = false;
         } else
         {
             GetComponent<MeshRenderer>().enabled = false;
