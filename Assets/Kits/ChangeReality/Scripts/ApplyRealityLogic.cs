@@ -67,27 +67,53 @@ public class ApplyRealityLogic : MonoBehaviour
         {
             gameObject.GetComponent<Collider>().enabled = true;
             gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
-            if (transform.childCount > 0)
+            if (transform.childCount == 1)
             {
                 transform.GetChild(0).gameObject.SetActive(true);
+            } else if (transform.childCount >= 1)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material = enabledMaterial;
+                }
             }
         } else if (myReality == KindOfReality.Both)
         {
             if (newReality == KindOfReality.Real)
             {
                 gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
+                if(transform.childCount > 0)
+                {
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material = enabledMaterial;
+                    }
+                }
             }
             else
             {
                 gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
+                if (transform.childCount > 0)
+                {
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material = disabledMaterial;
+                    }
+                }
             }
         } else
         {
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
-            if (transform.childCount > 0)
+            if (transform.childCount == 1)
             {
                 transform.GetChild(0).gameObject.SetActive(false);
+            } else if (transform.childCount >= 1)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material = disabledMaterial;
+                }
             }
         }
     }
