@@ -42,7 +42,7 @@ public class ApplyRealityLogic : MonoBehaviour
     {
         if (!gameObject.CompareTag("Mirror") && GetComponent<Collider>())
         {
-            GetComponent<Collider>().enabled = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
+            GetComponent<Collider>().isTrigger = myReality == KindOfReality.Shadow;
         }
         if (GetComponent<Rigidbody>())
         {
@@ -54,9 +54,9 @@ public class ApplyRealityLogic : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (myReality != currentReality && myReality != KindOfReality.Both && gameObject.GetComponent<Rigidbody>())
+        if (myReality != currentReality && myReality != KindOfReality.Both && GetComponent<Rigidbody>())
         {
-            gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
     }
 
@@ -65,8 +65,9 @@ public class ApplyRealityLogic : MonoBehaviour
 
         if (myReality == newReality)
         {
-            gameObject.GetComponent<Collider>().enabled = true;
-            gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
+            GetComponent<Collider>().enabled = true;
+            GetComponent<Collider>().isTrigger = false;
+            GetComponent<MeshRenderer>().material = enabledMaterial;
             if (transform.childCount == 1)
             {
                 transform.GetChild(0).gameObject.SetActive(true);
@@ -81,7 +82,7 @@ public class ApplyRealityLogic : MonoBehaviour
         {
             if (newReality == KindOfReality.Real)
             {
-                gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
+                GetComponent<MeshRenderer>().material = enabledMaterial;
                 if(transform.childCount > 0)
                 {
                     for (int i = 0; i < transform.childCount; i++)
@@ -92,7 +93,7 @@ public class ApplyRealityLogic : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
+                GetComponent<MeshRenderer>().material = disabledMaterial;
                 if (transform.childCount > 0)
                 {
                     for (int i = 0; i < transform.childCount; i++)
@@ -103,8 +104,9 @@ public class ApplyRealityLogic : MonoBehaviour
             }
         } else
         {
-            gameObject.GetComponent<Collider>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
+            GetComponent<Collider>().enabled = false;
+            GetComponent<Collider>().isTrigger = true;
+            GetComponent<MeshRenderer>().material = disabledMaterial;
             if (transform.childCount == 1)
             {
                 transform.GetChild(0).gameObject.SetActive(false);
@@ -126,9 +128,9 @@ public class ApplyRealityLogic : MonoBehaviour
 
         if (myReality == newReality)
         {
-            gameObject.GetComponent<CapsuleCollider>().enabled = true;
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
-            gameObject.GetComponent<PlayerBehaviour>().characterActive = true;
+            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<Rigidbody>().useGravity = true;
+            GetComponent<PlayerBehaviour>().characterActive = true;
             camera.Target.TrackingTarget = gameObject.transform;
             newMaterial = enabledMaterial;
         }
@@ -143,9 +145,9 @@ public class ApplyRealityLogic : MonoBehaviour
             }
         } else
         {
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
-            gameObject.GetComponent<PlayerBehaviour>().characterActive = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<PlayerBehaviour>().characterActive = false;
             newMaterial = disabledMaterial;
         }
 
@@ -165,14 +167,14 @@ public class ApplyRealityLogic : MonoBehaviour
         if (myReality == newReality || myReality == KindOfReality.Both)
         {
             //GetComponent<ChangeReality>().enabled = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<MeshRenderer>().enabled = true;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
             transform.GetChild(1).GetComponent<Camera>().enabled = true;
         }
         else
         {
             //GetComponent<ChangeReality>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(1).GetComponent<Camera>().enabled = false;
         }

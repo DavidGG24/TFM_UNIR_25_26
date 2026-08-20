@@ -73,6 +73,7 @@ public class BreakableObstacle : MonoBehaviour
         {
             //Destroy(gameObject);
             GetComponent<Collider>().isTrigger = true;
+            GetComponent<Collider>().enabled = false;
             if (GetComponent<CapsuleCollider>())
             {
                 GetComponent<CapsuleCollider>().enabled = false;

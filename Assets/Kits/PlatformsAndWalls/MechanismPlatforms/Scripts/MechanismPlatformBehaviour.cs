@@ -12,8 +12,10 @@ public class MechanismPlatformBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        //GetComponent<MeshRenderer>().enabled = false;
-        if (transform.childCount > 0)
+        if (transform.childCount == 1)
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+        } else if (transform.childCount > 0)
         {
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -21,14 +23,18 @@ public class MechanismPlatformBehaviour : MonoBehaviour
             }
         }
         GetComponent<Collider>().isTrigger = true;
+        GetComponent<Collider>().enabled = false;
     }
 
     private void ActivatePlatform(bool activado)
     {
         if (activado)
         {
-            //GetComponent<MeshRenderer>().enabled = true;
-            if (transform.childCount > 0)
+            if (transform.childCount == 1)
+            {
+                GetComponent<MeshRenderer>().enabled = true;
+            }
+            else if (transform.childCount > 0)
             {
                 for (int i = 0; i < transform.childCount; i++)
                 {
@@ -36,10 +42,14 @@ public class MechanismPlatformBehaviour : MonoBehaviour
                 }
             }
             GetComponent<Collider>().isTrigger = false;
+            GetComponent<Collider>().enabled = true;
         } else
         {
-            //GetComponent<MeshRenderer>().enabled = false;
-            if (transform.childCount > 0)
+            if (transform.childCount == 1)
+            {
+                GetComponent<MeshRenderer>().enabled = false;
+            }
+            else if (transform.childCount > 0)
             {
                 for (int i = 0; i < transform.childCount; i++)
                 {
@@ -47,6 +57,7 @@ public class MechanismPlatformBehaviour : MonoBehaviour
                 }
             }
             GetComponent<Collider>().isTrigger = true;
+            GetComponent<Collider>().enabled = false;
         }
     }
 }
