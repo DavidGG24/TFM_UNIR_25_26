@@ -6,6 +6,7 @@ public class ActivatorBehaviour : MonoBehaviour
 {
     [SerializeField] private InputActionReference activate;
     [SerializeField] private bool multiActivacion;
+    [SerializeField] private BoxCollider cameraConfiner;
     public UnityEvent<bool> onActivate;
     private bool estoyActivado;
     private bool jugadorDentro;
@@ -34,6 +35,12 @@ public class ActivatorBehaviour : MonoBehaviour
                 onActivate.Invoke(estoyActivado);
                 animator.SetBool("Activated", true);
                 Debug.Log("Estoy activado");
+
+                if (cameraConfiner)
+                {
+                    cameraConfiner.center = new Vector3(59.3644943f, 13.9754524f, 0);
+                    cameraConfiner.size = new Vector3(104.110855f, 18.9509048f, 1f);
+                }
             }
             else if (multiActivacion)
             {

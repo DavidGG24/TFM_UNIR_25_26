@@ -41,8 +41,14 @@ public class MechanismPlatformBehaviour : MonoBehaviour
                     transform.GetChild(i).GetComponent<MeshRenderer>().enabled = true;
                 }
             }
-            GetComponent<Collider>().isTrigger = false;
-            GetComponent<Collider>().enabled = true;
+            if (GetComponent<ApplyRealityLogic>())
+            {
+                GetComponent<ApplyRealityLogic>().enabled = true;
+            } else
+            {
+                GetComponent<Collider>().isTrigger = false;
+                GetComponent<Collider>().enabled = true;
+            }
         } else
         {
             if (transform.childCount == 1)

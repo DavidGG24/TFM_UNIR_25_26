@@ -1,4 +1,4 @@
-using Unity.Cinemachine;
+//using Unity.Cinemachine;
 using UnityEngine;
 using static ChangeReality;
 
@@ -6,9 +6,8 @@ public class ApplyRealityLogic : MonoBehaviour
 {
     [SerializeField] private Material disabledMaterial;
     [SerializeField] private Material enabledMaterial;
-    [SerializeField] private CinemachineCamera camera;
+    //[SerializeField] private CinemachineCamera camera; 
     public KindOfReality myReality;
-
 
     private ChangeReality[] crs;
 
@@ -38,11 +37,12 @@ public class ApplyRealityLogic : MonoBehaviour
     }
 
     private KindOfReality currentReality;
-    private void Awake()
+    private void Start()
     {
         if (!gameObject.CompareTag("Mirror") && GetComponent<Collider>())
         {
             GetComponent<Collider>().isTrigger = myReality == KindOfReality.Shadow;
+            GetComponent<Collider>().enabled = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
         }
         if (GetComponent<Rigidbody>())
         {
@@ -131,7 +131,7 @@ public class ApplyRealityLogic : MonoBehaviour
             GetComponent<CapsuleCollider>().enabled = true;
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<PlayerBehaviour>().characterActive = true;
-            camera.Target.TrackingTarget = gameObject.transform;
+            //camera.Target.TrackingTarget = gameObject.transform;
             newMaterial = enabledMaterial;
         }
         else if (myReality == KindOfReality.Both)

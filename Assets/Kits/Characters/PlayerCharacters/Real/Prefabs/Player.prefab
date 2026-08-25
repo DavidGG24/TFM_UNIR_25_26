@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3668321776952863944
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 109089508683390256}
-  m_Layer: 6
-  m_Name: CameraLookAt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &109089508683390256
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3668321776952863944}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8094889436247249751}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4215909690408781965
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +226,7 @@ GameObject:
   - component: {fileID: 4709744468311312509}
   - component: {fileID: 6858475009804929720}
   - component: {fileID: 5502168295736402079}
+  - component: {fileID: 2663005626650852376}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -279,7 +249,6 @@ Transform:
   m_Children:
   - {fileID: 4916557068075991591}
   - {fileID: 8075129643692222869}
-  - {fileID: 109089508683390256}
   - {fileID: 5434110088418877461}
   - {fileID: 5634645402683050255}
   m_Father: {fileID: 0}
@@ -396,7 +365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ApplyRealityLogic
   disabledMaterial: {fileID: 2100000, guid: 5883ec2256b94ff4daf47276e898d758, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 885ec15e8ce33724fa7e4f3b3330f30b, type: 2}
-  camera: {fileID: 0}
   myReality: 2
 --- !u!75 &5502168295736402079
 ConstantForce:
@@ -410,6 +378,14 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!81 &2663005626650852376
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802497511157436784}
+  m_Enabled: 1
 --- !u!1001 &4877864485322646988
 PrefabInstance:
   m_ObjectHideFlags: 0

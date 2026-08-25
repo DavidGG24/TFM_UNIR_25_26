@@ -10,7 +10,7 @@ public class GameData
     // Al crear una nueva partida, se generará un archivo de guardado con estos datos
     public GameData()
     {
-        this.playerPosition = Vector3.zero;
+        this.playerPosition = new Vector3(3.20f, 6.5f, 0f);
         this.level = 1;
     }
 }
