@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static ChangeReality;
 
 public class TemporalPlatform : MonoBehaviour
 {
@@ -17,7 +18,15 @@ public class TemporalPlatform : MonoBehaviour
     {
         timeActivated = 0f;
         timeInActive = 0f;
-        gameObject.SetActive(false);
+        if (transform.childCount > 0)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+        GetComponent<Collider>().isTrigger = true;
+        GetComponent<Collider>().enabled = false;
     }
 
     // Update is called once per frame
@@ -25,13 +34,36 @@ public class TemporalPlatform : MonoBehaviour
     {
         if (Time.time >= timeActivated + timeInActive)
         {
-            gameObject.SetActive(false);
+            GetComponent<Collider>().isTrigger = true;
+            GetComponent<Collider>().enabled = false;
+            if (transform.childCount > 0)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).GetComponent<MeshRenderer>().enabled = false;
+                }
+            }
         }
     }
 
     private void ActivatePlatform(float timeActivated, float timeInActive)
     {
-        gameObject.SetActive(true);
+        if (transform.childCount > 0)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).GetComponent<MeshRenderer>().enabled = true;
+            }
+
+            if (GetComponent<ApplyRealityLogic>())
+            {
+                if (GetComponent<ApplyRealityLogic>().myReality == GetComponent<ApplyRealityLogic>().currentReality || GetComponent<ApplyRealityLogic>().myReality == KindOfReality.Both)
+                {
+                    GetComponent<Collider>().isTrigger = false;
+                    GetComponent<Collider>().enabled = true;
+                }
+            }
+        }
         this.timeActivated = timeActivated;
         this.timeInActive = timeInActive;
     }

@@ -36,7 +36,7 @@ public class ApplyRealityLogic : MonoBehaviour
         }
     }
 
-    private KindOfReality currentReality;
+    public KindOfReality currentReality;
     private void Start()
     {
         if (!gameObject.CompareTag("Mirror") && GetComponent<Collider>())
@@ -118,6 +118,8 @@ public class ApplyRealityLogic : MonoBehaviour
                 }
             }
         }
+
+        currentReality = newReality;
     }
 
     public void OnChangeRealityPlayer(KindOfReality newReality)
@@ -178,5 +180,7 @@ public class ApplyRealityLogic : MonoBehaviour
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(1).GetComponent<Camera>().enabled = false;
         }
+
+        currentReality = newReality;
     }
 }
