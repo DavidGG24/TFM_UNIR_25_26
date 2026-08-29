@@ -6,25 +6,36 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("Input Actions")]
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
 
+    [Header("Events")]
     public UnityEvent MakeRespawn;
 
-    Vector2 rawMove;
+    [Header("Movement")]
     [SerializeField] float acceleration = 0.5f;
     [SerializeField] float maxVelocityX = 10.0f;
+    Vector2 rawMove;
 
-    bool canJump = true;
-    bool isJumping = false;
-    private bool isJumpingCanceled;
+    [Header("Jump")]
     [SerializeField] float jumpVelocity = 27f;
     [SerializeField] float fallMultiplier = 3f;
     [SerializeField] float lowJumpMultiplier = 2.5f;
     public LayerMask GroundLayer;
+    bool canJump = true;
+    bool isJumping = false;
+    private bool isJumpingCanceled;
 
-
+    [Header("Character Control")]
     public bool characterActive;
+
+    [Header("Audio Clips")]
+    [SerializeField] AudioClip[] footstepsClips;
+    [SerializeField] AudioClip[] jumpClips;
+    [SerializeField] AudioClip[] landingClips;
+    [SerializeField] AudioClip[] damageClips;
+    private bool canPlayLanding = false;
 
     private void OnEnable()
     {
@@ -56,6 +67,7 @@ public class PlayerBehaviour : MonoBehaviour
             canJump = false;
             animator.SetTrigger("IsJumping");
             animator.SetBool("IsLanded", false);
+            canPlayLanding = true;
         }
     }
 
@@ -124,7 +136,6 @@ public class PlayerBehaviour : MonoBehaviour
                 //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f);
                 //rb.AddForce(new Vector3(0f, Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f), ForceMode.VelocityChange);
             }
-
 
             //if (isJumpingCanceled)
             //{
@@ -204,12 +215,24 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetBool("IsLanded", true);
             isAlreadyFalling = false;
             GetComponent<ConstantForce>().enabled = false;
+            if (canPlayLanding)
+            {
+                canPlayLanding = false;
+                PlayLanding();
+            }
         }
     }
 
     public void OnDeath()
     {
         Debug.Log("AUCH!");
+
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, damageClips.Length - 1));
+
+        GetComponent<AudioSource>().clip = damageClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.4f;
+        GetComponent<AudioSource>().Play();
+
         MakeRespawn.Invoke();
     }
 
@@ -228,7 +251,35 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetTrigger("IsFalling");
             isAlreadyFalling = true;
             GetComponent<ConstantForce>().enabled = true;
+            canPlayLanding = true;
         }
+    }
+
+    private void PlayFootStep()
+    {
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, footstepsClips.Length-1));
+
+        GetComponent<AudioSource>().clip = footstepsClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.3f;
+        GetComponent<AudioSource>().Play();
+    }
+
+    private void PlayJump()
+    {
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, jumpClips.Length - 1));
+
+        GetComponent<AudioSource>().clip = jumpClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.35f;
+        GetComponent<AudioSource>().Play();
+    }
+
+    private void PlayLanding()
+    {
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, landingClips.Length - 1));
+
+        GetComponent<AudioSource>().clip = landingClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.35f;
+        GetComponent<AudioSource>().Play();
     }
 
     private void OnDisable()

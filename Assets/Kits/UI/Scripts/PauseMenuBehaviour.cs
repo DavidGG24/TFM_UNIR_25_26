@@ -28,12 +28,14 @@ public class PauseMenuBehaviour : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
         playerCharacter.SetActive(false);
+        GetComponent<AudioListener>().enabled = true;
     }
 
     private void OnDisable()
     {
         EventSystem.current.SetSelectedGameObject(null);
         playerCharacter.SetActive(true);
+        GetComponent<AudioListener>().enabled = false;
     }
 
     // Update is called once per frame

@@ -1149,6 +1149,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &43082636
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1260,6 +1261,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &50036869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2368,6 +2370,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &91724067
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4250,6 +4253,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &149008997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4559,6 +4563,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &153171672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4784,7 +4789,7 @@ MonoBehaviour:
   changeRealities:
   - {fileID: 3139002442203711226}
   skyboxbRotationVelocity: 1.2
-  playerLayer: 0
+  playerReality: 0
 --- !u!114 &159806991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4942,6 +4947,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &160665020
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5220,6 +5226,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &173176210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5602,6 +5609,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &203096703
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5987,6 +5995,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &206931248
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6762,6 +6771,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &218186421
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7675,6 +7685,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &243393428
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10393,6 +10404,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &338082818
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11487,6 +11499,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &374019134
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11736,6 +11749,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &383356842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14139,6 +14153,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &474659243
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15107,6 +15122,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &494185450
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15223,6 +15239,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &499240847
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15727,6 +15744,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7ac05215a9e345bb77811cb729cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonBehaviour
+  selectClips:
+  - {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  - {fileID: 8300000, guid: 36a89f68a9fc9b644a133ed59e71db9d, type: 3}
+  - {fileID: 8300000, guid: 4f71ae2607e1d0047aa3ee3d741a60c4, type: 3}
+  - {fileID: 8300000, guid: c70fab35a2c325040906ff9f8d8ee2c7, type: 3}
+  confirmClips:
+  - {fileID: 8300000, guid: 8608bccae1ed45d4d84efc97ded9c534, type: 3}
+  - {fileID: 8300000, guid: eda5ef90ec5ceac4ebdb2941cc8de2a8, type: 3}
+  - {fileID: 8300000, guid: af16614d9bb56894ebc01780f5bc02a9, type: 3}
+  - {fileID: 8300000, guid: 81f2040848cff8645a1e0a62add0f9e9, type: 3}
 --- !u!114 &520255703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17044,6 +17071,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &562230459
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17256,6 +17284,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &564945364
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17367,6 +17396,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &567037205
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18438,6 +18468,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &597236015
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18888,6 +18919,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &604251322
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19409,6 +19441,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &617022241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19525,6 +19558,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &618520670
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19723,6 +19757,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &624028645
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20057,6 +20092,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &629981771
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20163,6 +20199,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &630880766
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20583,6 +20620,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &648451582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21263,6 +21301,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &664658732
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22323,6 +22362,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &707506884
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22727,6 +22767,7 @@ MonoBehaviour:
   onChangeReality:
     m_PersistentCalls:
       m_Calls: []
+  mirrorClips: []
 --- !u!4 &709772958
 Transform:
   m_ObjectHideFlags: 0
@@ -23473,6 +23514,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &735233750
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24784,6 +24826,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &773324623
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25039,6 +25082,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &776292589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25776,6 +25820,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &801385829
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26758,6 +26803,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &830044853
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27242,6 +27288,7 @@ GameObject:
   - component: {fileID: 854103114}
   - component: {fileID: 854103113}
   - component: {fileID: 854103112}
+  - component: {fileID: 854103116}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -27481,6 +27528,14 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854103110}
   m_CullTransparentMesh: 1
+--- !u!81 &854103116
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854103110}
+  m_Enabled: 0
 --- !u!4 &856442398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1845496357674056586, guid: 953647cb37dbafa489a4f6556a172502, type: 3}
@@ -27638,6 +27693,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &857672390
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28268,6 +28324,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &874592091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29190,6 +29247,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &909543180
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29406,6 +29464,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &921940771
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29517,6 +29576,7 @@ GameObject:
   - component: {fileID: 927027524}
   - component: {fileID: 927027523}
   - component: {fileID: 927027522}
+  - component: {fileID: 927027526}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -29608,6 +29668,103 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!82 &927027526
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927027521}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.416
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &928037379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1845496357674056586, guid: 953647cb37dbafa489a4f6556a172502, type: 3}
@@ -30331,6 +30488,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &956167944
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31985,6 +32143,7 @@ GameObject:
   - component: {fileID: 1010432858}
   - component: {fileID: 1010432856}
   - component: {fileID: 1010432855}
+  - component: {fileID: 1010432860}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -32136,6 +32295,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -84.733, z: 0}
+--- !u!82 &1010432860
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010432854}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 3d792c748340fcb42b0c99173f55e4db, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.75
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1012356568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1845496357674056586, guid: 953647cb37dbafa489a4f6556a172502, type: 3}
@@ -33213,6 +33469,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1060801952
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33381,6 +33638,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1063212871
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34018,6 +34276,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1075256866
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34659,6 +34918,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1088398012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35157,6 +35417,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1110143811
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35263,6 +35524,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1111233085
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35849,6 +36111,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1116512377
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35960,6 +36223,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1116777857
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36084,6 +36348,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7ac05215a9e345bb77811cb729cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonBehaviour
+  selectClips:
+  - {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  - {fileID: 8300000, guid: 36a89f68a9fc9b644a133ed59e71db9d, type: 3}
+  - {fileID: 8300000, guid: 4f71ae2607e1d0047aa3ee3d741a60c4, type: 3}
+  - {fileID: 8300000, guid: c70fab35a2c325040906ff9f8d8ee2c7, type: 3}
+  confirmClips:
+  - {fileID: 8300000, guid: 8608bccae1ed45d4d84efc97ded9c534, type: 3}
+  - {fileID: 8300000, guid: eda5ef90ec5ceac4ebdb2941cc8de2a8, type: 3}
+  - {fileID: 8300000, guid: af16614d9bb56894ebc01780f5bc02a9, type: 3}
+  - {fileID: 8300000, guid: 81f2040848cff8645a1e0a62add0f9e9, type: 3}
 --- !u!114 &1131425362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36806,6 +37080,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1148000621
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36979,6 +37254,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1154443511
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37263,6 +37539,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1160599608
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37649,6 +37926,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1172190440
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38421,6 +38699,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1192828251
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39654,6 +39933,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1240228201
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39817,6 +40097,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1240534918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40362,6 +40643,46 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[10]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[11]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[12]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[13]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[14]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[15]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[16]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[17]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[18]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
+    - target: {fileID: 4709744468311312509, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
+      propertyPath: 'footstepsClips.Array.data[19]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1567a0c97757c8a42a87077b72d7eba7, type: 3}
     - target: {fileID: 4732867165198165898, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -40569,113 +40890,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8802497511157436784, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1253307770}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
 --- !u!1 &1253307769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8802497511157436784, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
   m_PrefabInstance: {fileID: 1253307768}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1253307770
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253307769}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3d792c748340fcb42b0c99173f55e4db, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.75
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1255365644
 GameObject:
   m_ObjectHideFlags: 0
@@ -40757,6 +40978,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1255447022
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41536,6 +41758,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1281886301
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42009,6 +42232,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1300865671
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42115,6 +42339,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1301071679
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42532,6 +42757,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1304895886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -43416,6 +43642,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1351165697
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47072,6 +47299,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1462286366
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47375,6 +47603,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1472340779
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -47958,6 +48187,10 @@ PrefabInstance:
     - target: {fileID: 3325942720484131141, guid: 278af1e496da6d54990800f62e564121, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366880144225082072, guid: 278af1e496da6d54990800f62e564121, type: 3}
+      propertyPath: obstacleId
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5366880144225082072, guid: 278af1e496da6d54990800f62e564121, type: 3}
       propertyPath: breakingType
@@ -48893,6 +49126,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1516707573
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49489,6 +49723,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1537529178
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49709,6 +49944,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1541463519
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50588,6 +50824,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1564639756
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -52660,6 +52897,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1624514086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53222,6 +53460,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1639803996
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53425,6 +53664,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1645798754
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53732,6 +53972,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1649150895
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53996,6 +54237,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1659153131
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54495,6 +54737,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1667923254
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -54902,6 +55145,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1679824524
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -55132,6 +55376,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1681596348
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56463,6 +56708,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1724027521
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56665,6 +56911,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1727039202
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -56878,6 +57125,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1736362771
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -57764,6 +58012,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1762527438
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58112,6 +58361,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1771788318
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58445,6 +58695,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1777652399
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60136,6 +60387,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Activator
       objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
+      value: 0.11218984
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 0.4019127
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
+      value: -0.45270115
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.45270115
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -0.45270115
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -0.45270115
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8467619134406704383, guid: 50e94ad0c96d0ae45be20e4b82cc9643, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -60401,6 +60700,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1819211575
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60869,6 +61169,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7ac05215a9e345bb77811cb729cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonBehaviour
+  selectClips:
+  - {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  - {fileID: 8300000, guid: 36a89f68a9fc9b644a133ed59e71db9d, type: 3}
+  - {fileID: 8300000, guid: 4f71ae2607e1d0047aa3ee3d741a60c4, type: 3}
+  - {fileID: 8300000, guid: c70fab35a2c325040906ff9f8d8ee2c7, type: 3}
+  confirmClips:
+  - {fileID: 8300000, guid: 8608bccae1ed45d4d84efc97ded9c534, type: 3}
+  - {fileID: 8300000, guid: eda5ef90ec5ceac4ebdb2941cc8de2a8, type: 3}
+  - {fileID: 8300000, guid: af16614d9bb56894ebc01780f5bc02a9, type: 3}
+  - {fileID: 8300000, guid: 81f2040848cff8645a1e0a62add0f9e9, type: 3}
 --- !u!114 &1833193118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64895,6 +65205,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1956833080
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65597,6 +65908,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &1970678785
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67126,6 +67438,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2006024610
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67237,6 +67550,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2007977556
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68804,6 +69118,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2059906880
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -69191,6 +69506,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2073698192
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70361,6 +70677,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2100974293
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70648,6 +70965,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2106214348
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70886,6 +71204,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2110119798
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70992,6 +71311,7 @@ MonoBehaviour:
   disabledMaterial: {fileID: 2100000, guid: b080dc5a2b1c9b44dbc6042dfd9d0cd2, type: 2}
   enabledMaterial: {fileID: 2100000, guid: 2370c0c1674307542b44229dc143e9c2, type: 2}
   myReality: 2
+  currentReality: 0
 --- !u!23 &2114241569
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72562,6 +72882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushableBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6194021552182843157, guid: 83adfe7cdc1e5d24e821019c811ef4c1, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7925985185319873185, guid: 83adfe7cdc1e5d24e821019c811ef4c1, type: 3}
       propertyPath: m_CastShadows
       value: 1
@@ -72681,6 +73005,10 @@ PrefabInstance:
       propertyPath: activator
       value: 
       objectReference: {fileID: 453209572}
+    - target: {fileID: 5366880144225082072, guid: 278af1e496da6d54990800f62e564121, type: 3}
+      propertyPath: obstacleId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6327437145157963292, guid: 278af1e496da6d54990800f62e564121, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -73795,6 +74123,10 @@ PrefabInstance:
     - target: {fileID: 6553329643653363057, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.13413583
+      objectReference: {fileID: 0}
+    - target: {fileID: 7670112680093139290, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

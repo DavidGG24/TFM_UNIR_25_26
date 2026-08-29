@@ -1,3 +1,4 @@
+using Coffee.UIEffects;
 using UnityEngine;
 
 public class EnemyPatrol : EnemyBase
@@ -6,6 +7,9 @@ public class EnemyPatrol : EnemyBase
     [SerializeField] private Transform point1;
     [SerializeField] private Transform point2;
     [SerializeField] private float velocity = 3f;
+
+    [Header("Audio Clips")]
+    [SerializeField] private AudioClip[] wingsClips;
 
     private Transform currentTarget;
     void Start()
@@ -36,6 +40,15 @@ public class EnemyPatrol : EnemyBase
         } else if (currentTarget == point2 && enemy.transform.position.x >= currentTarget.position.x)
         {
             currentTarget = point1;
+        }
+
+        if (!GetComponentInChildren<AudioSource>().isPlaying)
+        {
+            int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, wingsClips.Length - 1));
+
+            GetComponentInChildren<AudioSource>().clip = wingsClips[selectedClip];
+            GetComponentInChildren<AudioSource>().volume = 0.4f;
+            GetComponentInChildren<AudioSource>().Play();
         }
     }
 }

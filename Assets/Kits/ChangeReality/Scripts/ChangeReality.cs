@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -16,47 +17,60 @@ public class ChangeReality : MonoBehaviour
     //[SerializeField] private GameObject realCharacter;
     //[SerializeField] private GameObject shadowCharacter;
     public UnityEvent<KindOfReality> onChangeReality;
+    [Header("Audio Clips")]
+    [SerializeField] private AudioClip[] mirrorClips;
 
-    private KindOfReality playerLayer;
+    private KindOfReality playerReality;
     private bool isPlayerInside;
 
     private void OnEnable()
     {
         cambiar.action.Enable();
-        playerLayer = FindFirstObjectByType<PlayerDataManager>().playerLayer;
     }
 
     void Start()
     {
         isPlayerInside = false;
+        StartCoroutine(StartChangeReality());
     }
 
     void Update()
     {
         if (cambiar.action.triggered)
         {
-            Debug.Log($"Hola, mi playerLayer es: {playerLayer}");
+            Debug.Log($"Hola, mi playerReality es: {playerReality}");
         }
         if ((cambiar.action.triggered && !onlyChangeInside) || (cambiar.action.triggered && onlyChangeInside && isPlayerInside))
         {
-            playerLayer = FindFirstObjectByType<PlayerDataManager>().playerLayer;
+            playerReality = FindFirstObjectByType<PlayerDataManager>().playerReality;
             
-            if (GetComponent<ApplyRealityLogic>().myReality == playerLayer || GetComponent<ApplyRealityLogic>().myReality == KindOfReality.Both)
+            if (GetComponent<ApplyRealityLogic>().myReality == playerReality || GetComponent<ApplyRealityLogic>().myReality == KindOfReality.Both)
             {
-                if (playerLayer == KindOfReality.Real)
+                if (playerReality == KindOfReality.Real)
                 {
-                    playerLayer = KindOfReality.Shadow;
+                    playerReality = KindOfReality.Shadow;
                     //RenderSettings.skybox = shadowSkybox;
+                    GetComponent<AudioSource>().clip = mirrorClips[0];
                 }
                 else
                 {
-                    playerLayer = KindOfReality.Real;
+                    playerReality = KindOfReality.Real;
                     //RenderSettings.skybox = realSkybox;
+                    GetComponent<AudioSource>().clip = mirrorClips[1];
                 }
 
-                onChangeReality.Invoke(playerLayer);
+                onChangeReality.Invoke(playerReality);
+                GetComponent<AudioSource>().Play();
             }
         }
+    }
+
+    private IEnumerator StartChangeReality()
+    {
+        yield return new WaitForEndOfFrame();
+        playerReality = FindFirstObjectByType<PlayerDataManager>().playerReality;
+        onChangeReality.Invoke(playerReality);
+        Debug.Log("He empezado y ahora soy: " + playerReality);
     }
 
     private void OnTriggerEnter(Collider other)

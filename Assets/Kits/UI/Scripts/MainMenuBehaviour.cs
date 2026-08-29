@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class MainMenuBehaviour : MonoBehaviour
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private Image loadingBarFill;
     [SerializeField] private GameObject mainMenu;
+
+    [Header("Buttons")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button settingsButton;

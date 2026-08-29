@@ -22,10 +22,7 @@ public class DataPersistanceManager : MonoBehaviour
             Debug.LogError("Hay más de un Data Persistance Manager en escena.");
         }
         instance = this;
-    }
 
-    private void Start()
-    {
         if (fileName != "")
         {
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
@@ -39,6 +36,7 @@ public class DataPersistanceManager : MonoBehaviour
         this.gameData = new GameData();
 
         Debug.Log("Creada nueva posición: " + gameData.playerPosition);
+        Debug.Log("Creados nuevos estados de obstáculos" + gameData.obstacles);
     }
 
     public void LoadGame()
@@ -65,6 +63,7 @@ public class DataPersistanceManager : MonoBehaviour
             }
 
             Debug.Log("Cargada posición: " + gameData.playerPosition);
+            Debug.Log("Cargada realidad: " + gameData.playerReality);
         }
     }
 
@@ -84,6 +83,7 @@ public class DataPersistanceManager : MonoBehaviour
             }
 
             Debug.Log("Guardada posición: " + gameData.playerPosition);
+            Debug.Log("Guardada realidad: " + gameData.playerReality);
 
             this.gameData.level = SceneManager.GetActiveScene().buildIndex == 0 ? 1 : SceneManager.GetActiveScene().buildIndex;
 

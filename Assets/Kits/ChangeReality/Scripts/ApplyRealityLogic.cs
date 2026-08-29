@@ -49,7 +49,8 @@ public class ApplyRealityLogic : MonoBehaviour
             GetComponent<Rigidbody>().useGravity = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
         }
 
-        currentReality = KindOfReality.Real;
+        currentReality = FindFirstObjectByType<PlayerDataManager>().playerReality;
+        Debug.Log("He empezado y ahora tengo: " + currentReality);
     }
 
     void FixedUpdate()

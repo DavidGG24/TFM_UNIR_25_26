@@ -30,6 +30,7 @@ public class TemporalActivatorBehaviour : MonoBehaviour
             timeActivated = Time.time;
             onTemporalActivated.Invoke(timeActivated, timeInActive);
             estoyActivado = true;
+            GetComponent<AudioSource>().Play();
         }
 
         if (Time.time >= timeActivated + timeInActive)

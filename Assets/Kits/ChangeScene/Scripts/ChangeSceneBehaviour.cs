@@ -16,6 +16,7 @@ public class ChangeSceneBehaviour : SavePoint // Hereda de SavePoint para poder 
             playerPosition = spawnPoint;
             UpdateEverySave.Invoke(playerPosition);
             Debug.Log("Cogida la posición " + playerPosition);
+            other.gameObject.SetActive(false);
             StartCoroutine(LoadSceneAsync(targetScene));
         }
     }

@@ -384,7 +384,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.45
+  m_fontSize: 32.4
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29
+  m_fontSize: 33.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -810,6 +810,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7ac05215a9e345bb77811cb729cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonBehaviour
+  selectClips:
+  - {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  - {fileID: 8300000, guid: 36a89f68a9fc9b644a133ed59e71db9d, type: 3}
+  - {fileID: 8300000, guid: 4f71ae2607e1d0047aa3ee3d741a60c4, type: 3}
+  - {fileID: 8300000, guid: c70fab35a2c325040906ff9f8d8ee2c7, type: 3}
+  confirmClips:
+  - {fileID: 8300000, guid: 8608bccae1ed45d4d84efc97ded9c534, type: 3}
+  - {fileID: 8300000, guid: eda5ef90ec5ceac4ebdb2941cc8de2a8, type: 3}
+  - {fileID: 8300000, guid: af16614d9bb56894ebc01780f5bc02a9, type: 3}
+  - {fileID: 8300000, guid: 81f2040848cff8645a1e0a62add0f9e9, type: 3}
 --- !u!1 &507247650
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +954,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7ac05215a9e345bb77811cb729cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonBehaviour
+  selectClips:
+  - {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  - {fileID: 8300000, guid: 36a89f68a9fc9b644a133ed59e71db9d, type: 3}
+  - {fileID: 8300000, guid: 4f71ae2607e1d0047aa3ee3d741a60c4, type: 3}
+  - {fileID: 8300000, guid: c70fab35a2c325040906ff9f8d8ee2c7, type: 3}
+  confirmClips:
+  - {fileID: 8300000, guid: 8608bccae1ed45d4d84efc97ded9c534, type: 3}
+  - {fileID: 8300000, guid: eda5ef90ec5ceac4ebdb2941cc8de2a8, type: 3}
+  - {fileID: 8300000, guid: af16614d9bb56894ebc01780f5bc02a9, type: 3}
+  - {fileID: 8300000, guid: 81f2040848cff8645a1e0a62add0f9e9, type: 3}
 --- !u!1 &717387292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.019766044, y: 0.016125984}
   m_AnchorMax: {x: 0.46500003, y: 0.05550131}
-  m_AnchoredPosition: {x: -63.625, y: 16.07502}
+  m_AnchoredPosition: {x: -63.625, y: 16.075012}
   m_SizeDelta: {x: -103, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762433925
@@ -1106,7 +1126,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
+  m_fontSize: 12.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1447,6 +1467,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7ac05215a9e345bb77811cb729cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonBehaviour
+  selectClips:
+  - {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  - {fileID: 8300000, guid: 36a89f68a9fc9b644a133ed59e71db9d, type: 3}
+  - {fileID: 8300000, guid: 4f71ae2607e1d0047aa3ee3d741a60c4, type: 3}
+  - {fileID: 8300000, guid: c70fab35a2c325040906ff9f8d8ee2c7, type: 3}
+  confirmClips:
+  - {fileID: 8300000, guid: 8608bccae1ed45d4d84efc97ded9c534, type: 3}
+  - {fileID: 8300000, guid: eda5ef90ec5ceac4ebdb2941cc8de2a8, type: 3}
+  - {fileID: 8300000, guid: af16614d9bb56894ebc01780f5bc02a9, type: 3}
+  - {fileID: 8300000, guid: 81f2040848cff8645a1e0a62add0f9e9, type: 3}
 --- !u!1 &964484503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,7 +1561,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.05
+  m_fontSize: 33.15
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1778,6 +1808,7 @@ GameObject:
   - component: {fileID: 1075012253}
   - component: {fileID: 1075012252}
   - component: {fileID: 1075012256}
+  - component: {fileID: 1075012257}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1889,6 +1920,103 @@ MonoBehaviour:
   continueButton: {fileID: 424254505}
   settingsButton: {fileID: 919742046}
   exitButton: {fileID: 1961798003}
+--- !u!82 &1075012257
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075012251}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.271
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1227638837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,7 +2489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.041428573, y: 0.70515233}
   m_AnchorMax: {x: 0.9485715, y: 0.9372895}
-  m_AnchoredPosition: {x: 3.5, y: 25}
+  m_AnchoredPosition: {x: 3.5, y: 25.000008}
   m_SizeDelta: {x: -535, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1790166445
@@ -2496,7 +2624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.027151572, y: 0.7498684}
   m_AnchorMax: {x: 0.66269684, y: 0.9372895}
-  m_AnchoredPosition: {x: -71.90001, y: 3}
+  m_AnchoredPosition: {x: -71.900024, y: 3}
   m_SizeDelta: {x: -144, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862074950
@@ -2733,6 +2861,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7ac05215a9e345bb77811cb729cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonBehaviour
+  selectClips:
+  - {fileID: 8300000, guid: 731f0800c7ce463438e8784f9548179f, type: 3}
+  - {fileID: 8300000, guid: 36a89f68a9fc9b644a133ed59e71db9d, type: 3}
+  - {fileID: 8300000, guid: 4f71ae2607e1d0047aa3ee3d741a60c4, type: 3}
+  - {fileID: 8300000, guid: c70fab35a2c325040906ff9f8d8ee2c7, type: 3}
+  confirmClips:
+  - {fileID: 8300000, guid: 8608bccae1ed45d4d84efc97ded9c534, type: 3}
+  - {fileID: 8300000, guid: eda5ef90ec5ceac4ebdb2941cc8de2a8, type: 3}
+  - {fileID: 8300000, guid: af16614d9bb56894ebc01780f5bc02a9, type: 3}
+  - {fileID: 8300000, guid: 81f2040848cff8645a1e0a62add0f9e9, type: 3}
 --- !u!1 &2032871374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,7 +2955,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.95
+  m_fontSize: 33.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

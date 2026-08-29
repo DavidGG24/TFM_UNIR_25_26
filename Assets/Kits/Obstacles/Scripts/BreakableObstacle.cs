@@ -11,6 +11,8 @@ public class BreakableObstacle : MonoBehaviour
         withCollision = 2,
     }
 
+    public int obstacleId;
+    public bool isDestroyed;
     [SerializeField] BreakingTypes breakingType;
     [SerializeField] private ActivatorBehaviour activator;
 
@@ -32,6 +34,11 @@ public class BreakableObstacle : MonoBehaviour
                 transform.GetChild(0).GetChild(i).GetComponent<Collider>().isTrigger = true;
                 transform.GetChild(0).GetChild(i).GetComponent<Rigidbody>().useGravity = false;
             }
+        }
+
+        if (isDestroyed)
+        {
+            InvokeDestroy(true);
         }
     }
 
@@ -88,6 +95,8 @@ public class BreakableObstacle : MonoBehaviour
                     StartCoroutine(DestroyFragments(transform.GetChild(0).GetChild(i).gameObject));
                 }
             }
+
+            isDestroyed = true;
         }
     }
 
