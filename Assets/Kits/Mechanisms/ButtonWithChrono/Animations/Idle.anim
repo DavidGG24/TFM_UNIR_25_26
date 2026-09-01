@@ -560,6 +560,8 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 2100000, guid: 439d65219564f8548a2a76c2e36b61e1, type: 2}
+    - time: 4
+      value: {fileID: 2100000, guid: 439d65219564f8548a2a76c2e36b61e1, type: 2}
     attribute: 'm_Materials.Array.data[0]'
     path: Button/Cube.004
     classID: 23
@@ -693,12 +695,13 @@ AnimationClip:
     - {fileID: 2100000, guid: 439d65219564f8548a2a76c2e36b61e1, type: 2}
     - {fileID: 2100000, guid: 439d65219564f8548a2a76c2e36b61e1, type: 2}
     - {fileID: 2100000, guid: 439d65219564f8548a2a76c2e36b61e1, type: 2}
+    - {fileID: 2100000, guid: 439d65219564f8548a2a76c2e36b61e1, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4
+    m_StopTime: 4.016667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

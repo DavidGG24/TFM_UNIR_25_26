@@ -51,7 +51,7 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         Debug.Log("Ejecutado start new game");
         DataPersistanceManager.instance.NewGame();
-        DataPersistanceManager.instance.SaveGame();
+        DataPersistanceManager.instance.SaveGame(SceneManager.GetActiveScene().buildIndex);
         gameData = DataPersistanceManager.instance.RetrieveDataCopy();
         StartCoroutine(LoadSceneAsync(gameData.level));
     }

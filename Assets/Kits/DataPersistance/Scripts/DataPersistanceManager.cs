@@ -72,7 +72,7 @@ public class DataPersistanceManager : MonoBehaviour
         return this.gameData;
     }
 
-    public void SaveGame()
+    public void SaveGame(int sceneIndex)
     {
         if (fileName != "")
         {
@@ -85,7 +85,10 @@ public class DataPersistanceManager : MonoBehaviour
             Debug.Log("Guardada posición: " + gameData.playerPosition);
             Debug.Log("Guardada realidad: " + gameData.playerReality);
 
-            this.gameData.level = SceneManager.GetActiveScene().buildIndex == 0 ? 1 : SceneManager.GetActiveScene().buildIndex;
+            if (sceneIndex != 0)
+            {
+                this.gameData.level = sceneIndex;
+            }
 
             Debug.Log("Guardado nivel: " + gameData.level);
 
@@ -96,7 +99,7 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveGame();
+        SaveGame(SceneManager.GetActiveScene().buildIndex);
     }
 
     private List<IDataPersistance> FindAllDataPersistanceObjects()

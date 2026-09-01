@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ChangeReality : MonoBehaviour
 {
@@ -61,6 +62,7 @@ public class ChangeReality : MonoBehaviour
 
                 onChangeReality.Invoke(playerReality);
                 GetComponent<AudioSource>().Play();
+                DataPersistanceManager.instance.SaveGame(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }

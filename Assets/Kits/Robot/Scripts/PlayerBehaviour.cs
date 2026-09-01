@@ -75,6 +75,7 @@ public class PlayerBehaviour : MonoBehaviour
     Animator animator;
     private void Awake()
     {
+        AudioListener.volume = 1f;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>(); 
         characterActive = gameObject.layer == 6;
@@ -146,7 +147,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (shouldTurnBack)
             {
-                transform.rotation = Quaternion.Inverse(transform.rotation);
+                transform.GetChild(0).rotation = Quaternion.Inverse(transform.GetChild(0).rotation);
                 shouldTurnBack = false;
             }
         }

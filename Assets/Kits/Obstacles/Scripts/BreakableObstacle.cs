@@ -97,6 +97,7 @@ public class BreakableObstacle : MonoBehaviour
             }
 
             isDestroyed = true;
+            GetComponent<AudioSource>().Play();
         }
     }
 

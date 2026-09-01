@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using static ChangeReality;
 
 public class PlayerDataManager : MonoBehaviour, IDataPersistance
@@ -9,7 +10,7 @@ public class PlayerDataManager : MonoBehaviour, IDataPersistance
     [SerializeField] private Material realSkybox;
     [SerializeField] private Material shadowSkybox;
     [SerializeField] private ChangeReality[] changeRealities;
-    [SerializeField] private float skyboxbRotationVelocity = 1.2f;
+    [SerializeField] private float skyboxRotationVelocity = 1.2f;
     public KindOfReality playerReality;
     private Vector3 playerPosition;
 
@@ -32,7 +33,7 @@ public class PlayerDataManager : MonoBehaviour, IDataPersistance
 
     private void Update()
     {
-        RenderSettings.skybox.SetFloat("_Rotation", Time.time * skyboxbRotationVelocity);
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * skyboxRotationVelocity);
     }
 
     public void LoadData(GameData data)
@@ -114,7 +115,7 @@ public class PlayerDataManager : MonoBehaviour, IDataPersistance
     private void UpdateMyPosition(Vector3 newPos)
     {
         playerPosition = newPos;
-        DataPersistanceManager.instance.SaveGame();
+        DataPersistanceManager.instance.SaveGame(SceneManager.GetActiveScene().buildIndex);
         Debug.Log("Get actualizado: " + newPos);
     }
 
