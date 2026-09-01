@@ -6,9 +6,12 @@ public class ActivatorBehaviour : MonoBehaviour
 {
     [SerializeField] private InputActionReference activate;
     [SerializeField] private bool multiActivacion;
+    [SerializeField] private BoxCollider cameraConfiner;
     public UnityEvent<bool> onActivate;
-    private bool estoyActivado;
+    public int id;
+    public bool estoyActivado;
     private bool jugadorDentro;
+    private Animator animator;
 
     private void OnEnable()
     {
@@ -17,8 +20,16 @@ public class ActivatorBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        estoyActivado = false;
         jugadorDentro = false;
+        animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        if (estoyActivado)
+        {
+            OnActivatorActivated();
+        }
     }
 
     // Update is called once per frame
@@ -28,15 +39,30 @@ public class ActivatorBehaviour : MonoBehaviour
         {
             if (!estoyActivado)
             {
-                estoyActivado = true;
-                onActivate.Invoke(estoyActivado);
-                Debug.Log("Estoy activado");
+                OnActivatorActivated();
             }
             else if (multiActivacion)
             {
                 estoyActivado = false;
                 onActivate.Invoke(estoyActivado);
+                animator.SetBool("Activated", false);
+                GetComponent<AudioSource>().Play();
             }
+        }
+    }
+
+    private void OnActivatorActivated()
+    {
+        estoyActivado = true;
+        onActivate.Invoke(estoyActivado);
+        animator.SetBool("Activated", true);
+        Debug.Log("Estoy activado");
+        GetComponent<AudioSource>().Play();
+
+        if (cameraConfiner)
+        {
+            cameraConfiner.center = new Vector3(59.3644943f, 13.9754524f, 0);
+            cameraConfiner.size = new Vector3(104.110855f, 18.9509048f, 1f);
         }
     }
 

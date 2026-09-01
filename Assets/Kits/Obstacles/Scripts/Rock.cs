@@ -6,6 +6,7 @@ public class Rock : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("RealObstacle") || collision.gameObject.layer == LayerMask.NameToLayer("ShadowObstacle") || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
+            transform.parent.GetComponent<AudioSource>().Play();
             Destroy(gameObject);
         }
     }

@@ -48,7 +48,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -66,4 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc70443a49558e546af42b29479bdbf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeSceneBehaviour
-  targetScene: 0
+  UpdateEverySave:
+    m_PersistentCalls:
+      m_Calls: []
+  targetScene: 1
+  loadingScreen: {fileID: 0}
+  loadingBarFill: {fileID: 0}
+  spawnPoint: {x: 0, y: 0, z: 0}

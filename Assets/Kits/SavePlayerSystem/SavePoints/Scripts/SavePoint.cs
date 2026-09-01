@@ -4,10 +4,10 @@ using UnityEngine.Events;
 
 public class SavePoint : MonoBehaviour
 {
-    private Vector3 playerPosition;
-    public UnityEvent<Vector3> UpdateEverySave;
+    protected Vector3 playerPosition; // Posición a guardar del jugador
+    public UnityEvent<Vector3> UpdateEverySave; // Evento para guardar la posición en todos los puntos de guardado 
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other) // Al entrar en contacto, guarda la posición del player y actualiza todos los SavePoints
     {
         if (other.CompareTag("Player"))
         {

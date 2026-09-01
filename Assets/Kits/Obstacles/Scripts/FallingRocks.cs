@@ -18,7 +18,8 @@ public class FallingRocks : MonoBehaviour
 
         if (timer >= frequency)
         {
-            Instantiate(rock, transform.position, Quaternion.identity);
+            GameObject rockInstance = Instantiate(rock, transform.position, Quaternion.identity);
+            rockInstance.transform.parent = this.transform;
             timer = 0f;
         }
     }

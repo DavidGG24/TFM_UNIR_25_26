@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,8 @@ public class BreakableObstacle : MonoBehaviour
         withCollision = 2,
     }
 
+    public int obstacleId;
+    public bool isDestroyed;
     [SerializeField] BreakingTypes breakingType;
     [SerializeField] private ActivatorBehaviour activator;
 
@@ -24,7 +27,19 @@ public class BreakableObstacle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (transform.childCount != 0)
+        {
+            for (int i = 0; i < transform.GetChild(0).childCount; i++)
+            {
+                transform.GetChild(0).GetChild(i).GetComponent<Collider>().isTrigger = true;
+                transform.GetChild(0).GetChild(i).GetComponent<Rigidbody>().useGravity = false;
+            }
+        }
+
+        if (isDestroyed)
+        {
+            InvokeDestroy(true);
+        }
     }
 
     // Update is called once per frame
@@ -63,7 +78,32 @@ public class BreakableObstacle : MonoBehaviour
     {
         if (destroyed)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            GetComponent<Collider>().isTrigger = true;
+            GetComponent<Collider>().enabled = false;
+            if (GetComponent<CapsuleCollider>())
+            {
+                GetComponent<CapsuleCollider>().enabled = false;
+            }
+
+            if (transform.childCount != 0)
+            {
+                for (int i = 0; i < transform.GetChild(0).childCount; i++)
+                {
+                    transform.GetChild(0).GetChild(i).GetComponent<Collider>().isTrigger = false;
+                    transform.GetChild(0).GetChild(i).GetComponent<Rigidbody>().useGravity = true;
+                    StartCoroutine(DestroyFragments(transform.GetChild(0).GetChild(i).gameObject));
+                }
+            }
+
+            isDestroyed = true;
+            GetComponent<AudioSource>().Play();
         }
+    }
+
+    private IEnumerator DestroyFragments(GameObject fragment)
+    {
+        yield return new WaitForSeconds(3.0f);
+        Destroy(fragment);
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DataPersistanceManager : MonoBehaviour
 {
@@ -21,10 +22,7 @@ public class DataPersistanceManager : MonoBehaviour
             Debug.LogError("Hay más de un Data Persistance Manager en escena.");
         }
         instance = this;
-    }
 
-    private void Start()
-    {
         if (fileName != "")
         {
             this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
@@ -36,6 +34,9 @@ public class DataPersistanceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+
+        Debug.Log("Creada nueva posición: " + gameData.playerPosition);
+        Debug.Log("Creados nuevos estados de obstáculos" + gameData.obstacles);
     }
 
     public void LoadGame()
@@ -46,42 +47,59 @@ public class DataPersistanceManager : MonoBehaviour
             this.gameData = dataHandler.Load();
 
             // si no hay datos que se puedan cargar, se inicializa a los valores por defecto.
-            if (this.gameData == null)
-            {
-                Debug.Log("No se han encontrado datos. Inicializando a valores por defecto...");
-                NewGame();
-            }
+            //if (this.gameData == null)
+            //{
+            //    Debug.Log("No se han encontrado datos. Inicializando a valores por defecto...");
+            //    NewGame();
+            //}
 
-            // Llevar los datos cargados a los scripts que los necesiten
-            foreach (IDataPersistance dataPersistanceObj in dataPersistanceObjects)
+            if (dataPersistanceObjects.Count > 0)
             {
-                dataPersistanceObj.LoadData(gameData);
+                // Llevar los datos cargados a los scripts que los necesiten
+                foreach (IDataPersistance dataPersistanceObj in dataPersistanceObjects)
+                {
+                    dataPersistanceObj.LoadData(gameData);
+                }
             }
 
             Debug.Log("Cargada posición: " + gameData.playerPosition);
+            Debug.Log("Cargada realidad: " + gameData.playerReality);
         }
     }
 
-    public void SaveGame()
+    public GameData RetrieveDataCopy()
+    {
+        return this.gameData;
+    }
+
+    public void SaveGame(int sceneIndex)
     {
         if (fileName != "")
         {
             // Pasar los datos a otros scripts para que los actualicen
             foreach (IDataPersistance dataPersistanceObj in dataPersistanceObjects)
             {
-                dataPersistanceObj.SaveData(ref gameData);
+                dataPersistanceObj.SaveData(ref this.gameData);
             }
 
             Debug.Log("Guardada posición: " + gameData.playerPosition);
+            Debug.Log("Guardada realidad: " + gameData.playerReality);
+
+            if (sceneIndex != 0)
+            {
+                this.gameData.level = sceneIndex;
+            }
+
+            Debug.Log("Guardado nivel: " + gameData.level);
 
             // Guardar los datos a un archivo usando el data handler
-            dataHandler.Save(gameData);
+            dataHandler.Save(this.gameData);
         }
     }
 
     private void OnApplicationQuit()
     {
-        SaveGame();
+        SaveGame(SceneManager.GetActiveScene().buildIndex);
     }
 
     private List<IDataPersistance> FindAllDataPersistanceObjects()

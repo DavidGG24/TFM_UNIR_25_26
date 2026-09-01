@@ -6,25 +6,36 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("Input Actions")]
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
 
+    [Header("Events")]
     public UnityEvent MakeRespawn;
 
-    Vector2 rawMove;
+    [Header("Movement")]
     [SerializeField] float acceleration = 0.5f;
     [SerializeField] float maxVelocityX = 10.0f;
+    Vector2 rawMove;
 
-    bool canJump = true;
-    bool isJumping = false;
-    private bool isJumpingCanceled;
-    [SerializeField] float jumpVelocity = 30f;
+    [Header("Jump")]
+    [SerializeField] float jumpVelocity = 27f;
     [SerializeField] float fallMultiplier = 3f;
     [SerializeField] float lowJumpMultiplier = 2.5f;
     public LayerMask GroundLayer;
+    bool canJump = true;
+    bool isJumping = false;
+    private bool isJumpingCanceled;
 
-
+    [Header("Character Control")]
     public bool characterActive;
+
+    [Header("Audio Clips")]
+    [SerializeField] AudioClip[] footstepsClips;
+    [SerializeField] AudioClip[] jumpClips;
+    [SerializeField] AudioClip[] landingClips;
+    [SerializeField] AudioClip[] damageClips;
+    private bool canPlayLanding = false;
 
     private void OnEnable()
     {
@@ -56,6 +67,7 @@ public class PlayerBehaviour : MonoBehaviour
             canJump = false;
             animator.SetTrigger("IsJumping");
             animator.SetBool("IsLanded", false);
+            canPlayLanding = true;
         }
     }
 
@@ -63,6 +75,7 @@ public class PlayerBehaviour : MonoBehaviour
     Animator animator;
     private void Awake()
     {
+        AudioListener.volume = 1f;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>(); 
         characterActive = gameObject.layer == 6;
@@ -91,10 +104,10 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position + new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
             Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position - new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
 
-            if (Mathf.Abs(rb.linearVelocity.x) > maxVelocityX)
+            /*if (Mathf.Abs(rb.linearVelocity.x) > maxVelocityX) // Si el jugador pasa la velocidad máxima, se setea de nuevo a esta
             {
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x > 0 ? maxVelocityX : -maxVelocityX, rb.linearVelocity.y, 0f);
-            }
+            }*/
 
             //if (jump.action.triggered && canJump)
             //{
@@ -106,23 +119,24 @@ public class PlayerBehaviour : MonoBehaviour
             if (isJumping && secondsInJump < 0.5f && !isJumpingCanceled)
             {
                 secondsInJump += Time.deltaTime;
-                rb.AddForce(new Vector3(0f, jumpVelocity * Time.deltaTime, 0f), ForceMode.Impulse);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, 0f);
             } else if (isJumping && secondsInJump >= 0.5f)
             {
                 //isJumping = false;
                 //secondsInJump = 0f;
                 //isJumpingCanceled = false;
                 CheckFalling();
-                rb.AddForce(new Vector3(0f, Physics.gravity.y * (fallMultiplier -1) * Time.deltaTime, 0f), ForceMode.Impulse);
+                //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime, 0f);
+                //rb.AddForce(new Vector3(0f, Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime, 0f), ForceMode.Impulse);
             } else if ((isJumping && isJumpingCanceled) || !CheckIsOnGround())
             {
                 //isJumping = false;
                 //secondsInJump = 0f;
                 //isJumpingCanceled = false;
                 CheckFalling();
-                rb.AddForce(new Vector3(0f, Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f), ForceMode.Impulse);
+                //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f);
+                //rb.AddForce(new Vector3(0f, Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f), ForceMode.VelocityChange);
             }
-
 
             //if (isJumpingCanceled)
             //{
@@ -133,16 +147,8 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (shouldTurnBack)
             {
-                if (secondsInTurning < 0.5f)
-                {
-                    secondsInTurning++;
-                }
-                else
-                {
-                    secondsInTurning = 0;
-                    transform.rotation = Quaternion.Inverse(transform.rotation);
-                    shouldTurnBack = false;
-                }
+                transform.GetChild(0).rotation = Quaternion.Inverse(transform.GetChild(0).rotation);
+                shouldTurnBack = false;
             }
         }
     }
@@ -151,7 +157,9 @@ public class PlayerBehaviour : MonoBehaviour
     bool shouldTurnBack = false;
     protected void Move(Vector3 direction)
     {
-        rb.AddForce(direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+        //rb.AddForce(direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+        rb.linearVelocity = new Vector3(direction.normalized.x * maxVelocityX, rb.linearVelocity.y, 0f);
+        //rb.linearVelocity = direction.normalized * maxVelocityX;
 
         if (direction.magnitude > 0f)
         {
@@ -159,7 +167,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 //transform.rotation = Quaternion.Inverse(transform.rotation);
                 //transform.localPosition = direction.x > 0 ? new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z) : new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
-                animator.SetTrigger("TurnBack");
+                //animator.SetTrigger("TurnBack");
                 //transform.rotation = Quaternion.Inverse(transform.rotation);
                 rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 shouldTurnBack = true;
@@ -207,12 +215,25 @@ public class PlayerBehaviour : MonoBehaviour
             secondsInJump = 0f;
             animator.SetBool("IsLanded", true);
             isAlreadyFalling = false;
+            GetComponent<ConstantForce>().enabled = false;
+            if (canPlayLanding)
+            {
+                canPlayLanding = false;
+                PlayLanding();
+            }
         }
     }
 
     public void OnDeath()
     {
         Debug.Log("AUCH!");
+
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, damageClips.Length - 1));
+
+        GetComponent<AudioSource>().clip = damageClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.4f;
+        GetComponent<AudioSource>().Play();
+
         MakeRespawn.Invoke();
     }
 
@@ -230,7 +251,36 @@ public class PlayerBehaviour : MonoBehaviour
         {
             animator.SetTrigger("IsFalling");
             isAlreadyFalling = true;
+            GetComponent<ConstantForce>().enabled = true;
+            canPlayLanding = true;
         }
+    }
+
+    private void PlayFootStep()
+    {
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, footstepsClips.Length-1));
+
+        GetComponent<AudioSource>().clip = footstepsClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.3f;
+        GetComponent<AudioSource>().Play();
+    }
+
+    private void PlayJump()
+    {
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, jumpClips.Length - 1));
+
+        GetComponent<AudioSource>().clip = jumpClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.35f;
+        GetComponent<AudioSource>().Play();
+    }
+
+    private void PlayLanding()
+    {
+        int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, landingClips.Length - 1));
+
+        GetComponent<AudioSource>().clip = landingClips[selectedClip];
+        GetComponent<AudioSource>().volume = 0.35f;
+        GetComponent<AudioSource>().Play();
     }
 
     private void OnDisable()

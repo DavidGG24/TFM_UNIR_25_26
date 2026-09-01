@@ -1,4 +1,4 @@
-using Unity.Cinemachine;
+//using Unity.Cinemachine;
 using UnityEngine;
 using static ChangeReality;
 
@@ -6,9 +6,8 @@ public class ApplyRealityLogic : MonoBehaviour
 {
     [SerializeField] private Material disabledMaterial;
     [SerializeField] private Material enabledMaterial;
-    [SerializeField] private CinemachineCamera camera;
+    //[SerializeField] private CinemachineCamera camera; 
     public KindOfReality myReality;
-
 
     private ChangeReality[] crs;
 
@@ -37,11 +36,12 @@ public class ApplyRealityLogic : MonoBehaviour
         }
     }
 
-    private KindOfReality currentReality;
-    private void Awake()
+    public KindOfReality currentReality;
+    private void Start()
     {
-        if (!gameObject.CompareTag("Mirror"))
+        if (!gameObject.CompareTag("Mirror") && GetComponent<Collider>())
         {
+            GetComponent<Collider>().isTrigger = myReality == KindOfReality.Shadow;
             GetComponent<Collider>().enabled = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
         }
         if (GetComponent<Rigidbody>())
@@ -49,14 +49,15 @@ public class ApplyRealityLogic : MonoBehaviour
             GetComponent<Rigidbody>().useGravity = myReality == KindOfReality.Real || myReality == KindOfReality.Both;
         }
 
-        currentReality = KindOfReality.Real;
+        currentReality = FindFirstObjectByType<PlayerDataManager>().playerReality;
+        Debug.Log("He empezado y ahora tengo: " + currentReality);
     }
 
     void FixedUpdate()
     {
-        if (myReality != currentReality && myReality != KindOfReality.Both && gameObject.GetComponent<Rigidbody>() != null)
+        if (myReality != currentReality && myReality != KindOfReality.Both && GetComponent<Rigidbody>())
         {
-            gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
     }
 
@@ -65,23 +66,61 @@ public class ApplyRealityLogic : MonoBehaviour
 
         if (myReality == newReality)
         {
-            gameObject.GetComponent<Collider>().enabled = true;
-            gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
+            GetComponent<Collider>().enabled = true;
+            GetComponent<Collider>().isTrigger = false;
+            GetComponent<MeshRenderer>().material = enabledMaterial;
+            if (transform.childCount == 1)
+            {
+                transform.GetChild(0).gameObject.SetActive(true);
+            } else if (transform.childCount >= 1)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material = enabledMaterial;
+                }
+            }
         } else if (myReality == KindOfReality.Both)
         {
             if (newReality == KindOfReality.Real)
             {
-                gameObject.GetComponent<MeshRenderer>().material = enabledMaterial;
+                GetComponent<MeshRenderer>().material = enabledMaterial;
+                if(transform.childCount > 0)
+                {
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material = enabledMaterial;
+                    }
+                }
             }
             else
             {
-                gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
+                GetComponent<MeshRenderer>().material = disabledMaterial;
+                if (transform.childCount > 0)
+                {
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material = disabledMaterial;
+                    }
+                }
             }
         } else
         {
-            gameObject.GetComponent<Collider>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().material = disabledMaterial;
+            GetComponent<Collider>().enabled = false;
+            GetComponent<Collider>().isTrigger = true;
+            GetComponent<MeshRenderer>().material = disabledMaterial;
+            if (transform.childCount == 1)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+            } else if (transform.childCount >= 1)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material = disabledMaterial;
+                }
+            }
         }
+
+        currentReality = newReality;
     }
 
     public void OnChangeRealityPlayer(KindOfReality newReality)
@@ -92,10 +131,10 @@ public class ApplyRealityLogic : MonoBehaviour
 
         if (myReality == newReality)
         {
-            gameObject.GetComponent<CapsuleCollider>().enabled = true;
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
-            gameObject.GetComponent<PlayerBehaviour>().characterActive = true;
-            camera.Target.TrackingTarget = gameObject.transform;
+            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<Rigidbody>().useGravity = true;
+            GetComponent<PlayerBehaviour>().characterActive = true;
+            //camera.Target.TrackingTarget = gameObject.transform;
             newMaterial = enabledMaterial;
         }
         else if (myReality == KindOfReality.Both)
@@ -109,9 +148,9 @@ public class ApplyRealityLogic : MonoBehaviour
             }
         } else
         {
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
-            gameObject.GetComponent<PlayerBehaviour>().characterActive = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<PlayerBehaviour>().characterActive = false;
             newMaterial = disabledMaterial;
         }
 
@@ -131,16 +170,18 @@ public class ApplyRealityLogic : MonoBehaviour
         if (myReality == newReality || myReality == KindOfReality.Both)
         {
             //GetComponent<ChangeReality>().enabled = true;
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<MeshRenderer>().enabled = true;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
             transform.GetChild(1).GetComponent<Camera>().enabled = true;
         }
         else
         {
             //GetComponent<ChangeReality>().enabled = false;
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(1).GetComponent<Camera>().enabled = false;
         }
+
+        currentReality = newReality;
     }
 }
