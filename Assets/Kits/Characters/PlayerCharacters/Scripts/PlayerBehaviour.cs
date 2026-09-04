@@ -100,38 +100,14 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position + new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
             Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position - new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
 
-            //if (jump.action.triggered && canJump)
-            //{
-            //    //rb.AddForce(new Vector3(0f, jumpVelocity, 0f), ForceMode.Impulse);
-            //    isJumping = true;
-            //    canJump = false;
-            //}
-
             if (isJumping && secondsInJump < 0.5f && !isJumpingCanceled)
             {
                 secondsInJump += Time.deltaTime;
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, 0f);
-            } else if (isJumping && secondsInJump >= 0.5f)
+            } else if (isJumping && secondsInJump >= 0.5f || (isJumping && isJumpingCanceled) || !CheckIsOnGround())
             {
-                //isJumping = false;
-                //secondsInJump = 0f;
-                //isJumpingCanceled = false;
                 CheckFalling();
-            } else if ((isJumping && isJumpingCanceled) || !CheckIsOnGround())
-            {
-                //isJumping = false;
-                //secondsInJump = 0f;
-                //isJumpingCanceled = false;
-                CheckFalling();
-            }
-
-            //if (isJumpingCanceled)
-            //{
-            //    rb.AddForce(new Vector3(0f, -rb.linearVelocity.y, 0f), ForceMode.Impulse);
-            //    secondsInJump = 0f;
-            //    isJumpingCanceled = false;
-            //}
-
+            } 
             if (shouldTurnBack)
             {
                 transform.GetChild(0).rotation = Quaternion.Inverse(transform.GetChild(0).rotation);
@@ -150,23 +126,21 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (direction.normalized.x != lastMoveDirection.x)
             {
-                //transform.localPosition = direction.x > 0 ? new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z) : new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
-                //animator.SetTrigger("TurnBack");
                 rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 shouldTurnBack = true;
                 lastMoveDirection = direction;
             }
 
-            if (shouldTurnBack)
+            if (!shouldTurnBack)
             {
-                //animator.SetTrigger("TurnBack");
-                //rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
-            } else if (rb.linearVelocity.x == 0f)
-            {
-                rb.linearVelocity = new Vector3(5f * direction.normalized.x, rb.linearVelocity.y, 0f);
-            } else
-            {
-                animator.SetBool("IsMoving", true);
+                if (rb.linearVelocity.x == 0f)
+                {
+                    rb.linearVelocity = new Vector3(5f * direction.normalized.x, rb.linearVelocity.y, 0f);
+                }
+                else
+                {
+                    animator.SetBool("IsMoving", true);
+                }
             }
         }
         else

@@ -15,8 +15,6 @@ public class ChangeReality : MonoBehaviour
 
     [SerializeField] private InputActionReference cambiar;
     [SerializeField] private bool onlyChangeInside;
-    //[SerializeField] private GameObject realCharacter;
-    //[SerializeField] private GameObject shadowCharacter;
     public UnityEvent<KindOfReality> onChangeReality;
     [Header("Audio Clips")]
     [SerializeField] private AudioClip[] mirrorClips;
@@ -37,10 +35,6 @@ public class ChangeReality : MonoBehaviour
 
     void Update()
     {
-        if (cambiar.action.triggered)
-        {
-            Debug.Log($"Hola, mi playerReality es: {playerReality}");
-        }
         if ((cambiar.action.triggered && !onlyChangeInside) || (cambiar.action.triggered && onlyChangeInside && isPlayerInside))
         {
             playerReality = FindFirstObjectByType<PlayerDataManager>().playerReality;
