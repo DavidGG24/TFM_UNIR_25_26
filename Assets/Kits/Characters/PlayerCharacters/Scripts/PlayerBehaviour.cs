@@ -10,9 +10,6 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
 
-    [Header("Events")]
-    public UnityEvent MakeRespawn;
-
     [Header("Movement")]
     [SerializeField] float maxVelocityX = 10.0f;
     private Vector2 rawMove;
@@ -202,15 +199,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void OnDeath()
     {
-        Debug.Log("AUCH!");
-
         int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, damageClips.Length - 1));
 
         GetComponent<AudioSource>().clip = damageClips[selectedClip];
         GetComponent<AudioSource>().volume = 0.4f;
         GetComponent<AudioSource>().Play();
 
-        MakeRespawn.Invoke();
+        DataPersistanceManager.instance.LoadGame();
     }
 
     private bool CheckIsOnGround()

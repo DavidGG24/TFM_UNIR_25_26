@@ -3,15 +3,15 @@ using UnityEngine.AI;
 
 public class EnemyFocus : EnemyBase
 {
-    public float listenDistance = 10f;
-    public float stopDistance = 0.5f;
-    public float velocity = 5f;
+    [Header("Listen and Movement")]
+    [SerializeField] private float listenDistance = 10f;
+    [SerializeField] private float stopDistance = 0.5f;
+    [SerializeField] private float velocity = 5f;
 
-    public GameObject player;
+    [Header("Player")]
+    [SerializeField] private GameObject player;
 
-    public GameObject particlesPref;
-    public Transform spawnPoint;
-    public float spawnInterval = 1.5f;
+    [SerializeField] private GameObject particlesPref;
 
     [SerializeField] bool drawGizmos;
 
@@ -19,7 +19,6 @@ public class EnemyFocus : EnemyBase
     private Vector3 targetPosition;
     private bool targetIsPlayer = false;
     private bool isReturning = false;
-    private float timer;
 
     private void Awake()
     {

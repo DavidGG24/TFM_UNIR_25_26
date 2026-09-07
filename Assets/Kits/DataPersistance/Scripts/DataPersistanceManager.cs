@@ -46,13 +46,6 @@ public class DataPersistanceManager : MonoBehaviour
             // Cargar toda la información guardada en un archivo usando el data handler
             this.gameData = dataHandler.Load();
 
-            // si no hay datos que se puedan cargar, se inicializa a los valores por defecto.
-            //if (this.gameData == null)
-            //{
-            //    Debug.Log("No se han encontrado datos. Inicializando a valores por defecto...");
-            //    NewGame();
-            //}
-
             if (dataPersistanceObjects.Count > 0)
             {
                 // Llevar los datos cargados a los scripts que los necesiten

@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 1d8f04f72af2dc646b9e5e69ad1e2b5b, type: 3}
+  - {fileID: 2100000, guid: c34e544ff5fe26e43b0fede2c1a5a71f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c34e544ff5fe26e43b0fede2c1a5a71f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -372,7 +372,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 1d8f04f72af2dc646b9e5e69ad1e2b5b, type: 3}
+  - {fileID: 2100000, guid: c34e544ff5fe26e43b0fede2c1a5a71f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -506,7 +506,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2583221008313295174
 Transform:
@@ -621,9 +621,6 @@ MonoBehaviour:
   onTemporalActivated:
     m_PersistentCalls:
       m_Calls: []
-  button: {fileID: 2214088256429537604}
-  activeMaterial: {fileID: 2100000, guid: 439d65219564f8548a2a76c2e36b61e1, type: 2}
-  inactiveMaterial: {fileID: 2100000, guid: c34e544ff5fe26e43b0fede2c1a5a71f, type: 2}
 --- !u!82 &5835774524332541632
 AudioSource:
   m_ObjectHideFlags: 0

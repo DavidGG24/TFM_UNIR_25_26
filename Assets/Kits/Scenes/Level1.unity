@@ -4927,7 +4927,6 @@ GameObject:
   - component: {fileID: 159806992}
   - component: {fileID: 159806991}
   - component: {fileID: 159806990}
-  - component: {fileID: 159806989}
   - component: {fileID: 159806993}
   m_Layer: 0
   m_Name: GameManager
@@ -4936,18 +4935,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &159806989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159806988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3fcbc5de3fa324db7cb5c726419d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RespawnPlayer
 --- !u!114 &159806990
 MonoBehaviour:
   m_ObjectHideFlags: 0

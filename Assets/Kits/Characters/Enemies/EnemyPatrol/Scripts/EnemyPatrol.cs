@@ -3,17 +3,20 @@ using UnityEngine;
 
 public class EnemyPatrol : EnemyBase
 {
-    [SerializeField] private GameObject enemy;
-    [SerializeField] private Transform point1;
-    [SerializeField] private Transform point2;
     [SerializeField] private float velocity = 3f;
 
     [Header("Audio Clips")]
     [SerializeField] private AudioClip[] wingsClips;
 
+    private GameObject enemy;
+    private Transform point1;
+    private Transform point2;
     private Transform currentTarget;
     void Start()
     {
+        enemy = transform.GetChild(0).gameObject;
+        point1 = transform.GetChild(1);
+        point2 = transform.GetChild(2);
         if (Random.Range(0, 2) > 0)
         {
             currentTarget = point1;
@@ -21,6 +24,7 @@ public class EnemyPatrol : EnemyBase
         {
             currentTarget = point2;
         }
+
     }
 
     // Update is called once per frame

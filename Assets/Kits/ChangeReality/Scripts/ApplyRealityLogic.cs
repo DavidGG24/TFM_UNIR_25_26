@@ -134,7 +134,6 @@ public class ApplyRealityLogic : MonoBehaviour
             GetComponent<CapsuleCollider>().enabled = true;
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<PlayerBehaviour>().characterActive = true;
-            //camera.Target.TrackingTarget = gameObject.transform;
             newMaterial = enabledMaterial;
         }
         else if (myReality == KindOfReality.Both)
@@ -169,14 +168,12 @@ public class ApplyRealityLogic : MonoBehaviour
     {
         if (myReality == newReality || myReality == KindOfReality.Both)
         {
-            //GetComponent<ChangeReality>().enabled = true;
             GetComponent<MeshRenderer>().enabled = true;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
             transform.GetChild(1).GetComponent<Camera>().enabled = true;
         }
         else
         {
-            //GetComponent<ChangeReality>().enabled = false;
             GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(1).GetComponent<Camera>().enabled = false;

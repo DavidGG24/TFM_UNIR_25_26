@@ -24,7 +24,6 @@ public class BreakableObstacle : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (transform.childCount != 0)
@@ -39,22 +38,6 @@ public class BreakableObstacle : MonoBehaviour
         if (isDestroyed)
         {
             InvokeDestroy(true);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        switch (breakingType)
-        {
-            case BreakingTypes.withEvent:
-                break;
-            case BreakingTypes.withTrigger:
-                break;
-            case BreakingTypes.withCollision:
-                break;
-            default:
-                break;
         }
     }
 
@@ -78,7 +61,6 @@ public class BreakableObstacle : MonoBehaviour
     {
         if (destroyed)
         {
-            //Destroy(gameObject);
             GetComponent<Collider>().isTrigger = true;
             GetComponent<Collider>().enabled = false;
             if (GetComponent<CapsuleCollider>())

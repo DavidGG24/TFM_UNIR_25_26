@@ -10811,7 +10811,6 @@ GameObject:
   - component: {fileID: 1755106563}
   - component: {fileID: 1755106564}
   - component: {fileID: 1755106565}
-  - component: {fileID: 1755106566}
   - component: {fileID: 1755106567}
   m_Layer: 0
   m_Name: GameManager
@@ -10867,18 +10866,6 @@ MonoBehaviour:
   - {fileID: 1769349708}
   skyboxRotationVelocity: 1.2
   playerReality: 0
---- !u!114 &1755106566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755106561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3fcbc5de3fa324db7cb5c726419d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RespawnPlayer
 --- !u!114 &1755106567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12631,14 +12618,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 780657574062428109, guid: 1790dc48bc6d3304e9d1904d6c7f8983, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: c34e544ff5fe26e43b0fede2c1a5a71f, type: 2}
-    - target: {fileID: 2214088256429537604, guid: 1790dc48bc6d3304e9d1904d6c7f8983, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: c34e544ff5fe26e43b0fede2c1a5a71f, type: 2}
     - target: {fileID: 2583221008313295174, guid: 1790dc48bc6d3304e9d1904d6c7f8983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.75
@@ -12679,17 +12658,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6282360129465288774, guid: 1790dc48bc6d3304e9d1904d6c7f8983, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: c34e544ff5fe26e43b0fede2c1a5a71f, type: 2}
     - target: {fileID: 7578033301808519092, guid: 1790dc48bc6d3304e9d1904d6c7f8983, type: 3}
       propertyPath: m_Name
       value: ButtonWithChrono
-      objectReference: {fileID: 0}
-    - target: {fileID: 7578033301808519092, guid: 1790dc48bc6d3304e9d1904d6c7f8983, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13006,7 +12977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5598509749886896805, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
       propertyPath: m_fontSize
-      value: 64.1
+      value: 27.4
       objectReference: {fileID: 0}
     - target: {fileID: 5598509749886896805, guid: b206d392d22c998408516296e2e0e7a5, type: 3}
       propertyPath: m_enableAutoSizing
