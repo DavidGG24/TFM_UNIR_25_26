@@ -9,8 +9,8 @@ public class PlayerDataManager : MonoBehaviour, IDataPersistance
 {
     [SerializeField] private Material realSkybox;
     [SerializeField] private Material shadowSkybox;
-    [SerializeField] private ChangeReality[] changeRealities;
     [SerializeField] private float skyboxRotationVelocity = 1.2f;
+    private ChangeReality[] changeRealities;
     public KindOfReality playerReality;
     private Vector3 playerPosition;
 
@@ -25,6 +25,7 @@ public class PlayerDataManager : MonoBehaviour, IDataPersistance
             }
         }
 
+        changeRealities = FindObjectsByType<ChangeReality>(FindObjectsSortMode.None);
         foreach (ChangeReality cr in changeRealities)
         {
             cr.onChangeReality.AddListener(UpdatePlayerReality);
