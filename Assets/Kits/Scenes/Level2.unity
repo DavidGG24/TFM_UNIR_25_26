@@ -1759,7 +1759,7 @@ Transform:
   m_GameObject: {fileID: 264161443}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7360146, y: 5.076751, z: -10.000001}
+  m_LocalPosition: {x: 2.7369022, y: 5.076751, z: -10.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7776,17 +7776,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b21490317de904fa43953704b8cdb8, type: 3}
---- !u!114 &1316238873 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7440980043960457038, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
-  m_PrefabInstance: {fileID: 1668886757}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e241aefa1a8db6b4f8d73e099f9e1d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChangeReality
 --- !u!1001 &1333748534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10168,21 +10157,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3913254356835101166, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900600520069345947, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 5090687515462072295, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
       propertyPath: m_Name
       value: Mirror
-      objectReference: {fileID: 0}
-    - target: {fileID: 5090687515462072295, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10861,9 +10838,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDataManager
   realSkybox: {fileID: 2100000, guid: aa2c6dc03fed3a94aab18a031410263e, type: 2}
   shadowSkybox: {fileID: 2100000, guid: e36da694ecd44e342b0c97d2be8c0f9c, type: 2}
-  changeRealities:
-  - {fileID: 1316238873}
-  - {fileID: 1769349708}
   skyboxRotationVelocity: 1.2
   playerReality: 0
 --- !u!114 &1755106567
@@ -11007,17 +10981,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d05ce1baccf6e47ab887ff4bb1292e, type: 3}
---- !u!114 &1769349708 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7440980043960457038, guid: 24a84537450442f4d8fa8d7a9f4b05e1, type: 3}
-  m_PrefabInstance: {fileID: 1199214246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e241aefa1a8db6b4f8d73e099f9e1d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChangeReality
 --- !u!4 &1769727586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3030063098801114869, guid: c38710887c46a0c46b6f7a834a60607c, type: 3}
