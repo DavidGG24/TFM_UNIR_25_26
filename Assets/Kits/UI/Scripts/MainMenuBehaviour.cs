@@ -27,7 +27,7 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         newGameButton.onClick.AddListener(StartNewGame);
         continueButton.onClick.AddListener(ContinueGame);
-        settingsButton.onClick.AddListener(OpenSettings);
+        //settingsButton.onClick.AddListener(OpenSettings);
         exitButton.onClick.AddListener(ExitGame);
 
         StartCoroutine(WaitForLoad());
