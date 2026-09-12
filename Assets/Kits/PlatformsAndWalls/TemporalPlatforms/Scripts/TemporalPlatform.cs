@@ -29,7 +29,6 @@ public class TemporalPlatform : MonoBehaviour
         GetComponent<Collider>().enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Time.time >= timeActivated + timeInActive)
@@ -57,7 +56,8 @@ public class TemporalPlatform : MonoBehaviour
 
             if (GetComponent<ApplyRealityLogic>())
             {
-                if (GetComponent<ApplyRealityLogic>().myReality == GetComponent<ApplyRealityLogic>().currentReality || GetComponent<ApplyRealityLogic>().myReality == KindOfReality.Both)
+                if (GetComponent<ApplyRealityLogic>().myReality == GetComponent<ApplyRealityLogic>().currentReality 
+                    || GetComponent<ApplyRealityLogic>().myReality == KindOfReality.Both)
                 {
                     GetComponent<Collider>().isTrigger = false;
                     GetComponent<Collider>().enabled = true;

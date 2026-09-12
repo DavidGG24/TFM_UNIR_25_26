@@ -289,7 +289,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7033420646930148666}
   - component: {fileID: 665045617616967495}
-  - component: {fileID: 651937836131801252}
   - component: {fileID: 3619492156545574288}
   m_Layer: 0
   m_Name: Enemy
@@ -342,18 +341,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &651937836131801252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2994358085020021389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27f323dd14c524241a06a340be8bf1f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
 --- !u!82 &3619492156545574288
 AudioSource:
   m_ObjectHideFlags: 0
@@ -579,6 +566,7 @@ GameObject:
   - component: {fileID: 2711510277890298184}
   - component: {fileID: 4920966480657360008}
   - component: {fileID: 4315335432076349971}
+  - component: {fileID: 8533658840217684332}
   m_Layer: 0
   m_Name: EnemyPatrol
   m_TagString: Enemy
@@ -648,6 +636,33 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6200765b320d7954f931de13fb63bcfc, type: 3}
   - {fileID: 8300000, guid: 0368b6ce58f51b14280349fd677697db, type: 3}
   - {fileID: 8300000, guid: 7dd3a7cb310e2674792b113fa878d917, type: 3}
+--- !u!54 &8533658840217684332
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267490431607718562}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6713281669619907927
 GameObject:
   m_ObjectHideFlags: 0

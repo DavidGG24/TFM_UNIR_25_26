@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4448824840994188336}
   - component: {fileID: 7400330265987411179}
   - component: {fileID: 1295156376789461951}
+  - component: {fileID: 1491531061938429915}
   m_Layer: 0
   m_Name: EnemyFocus
   m_TagString: Enemy
@@ -76,6 +77,33 @@ MonoBehaviour:
   spawnPoint: {fileID: 4818609980527574834}
   spawnInterval: 1.5
   drawGizmos: 1
+--- !u!54 &1491531061938429915
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314572661307341290}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &445787222159082934
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +331,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6255139578088293953}
   - component: {fileID: 3277732741421004817}
-  - component: {fileID: 6806253528932088388}
   - component: {fileID: 1274725535390885974}
   m_Layer: 0
   m_Name: Enemy (1)
@@ -355,18 +382,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6806253528932088388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2247154005663974544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27f323dd14c524241a06a340be8bf1f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
 --- !u!82 &1274725535390885974
 AudioSource:
   m_ObjectHideFlags: 0

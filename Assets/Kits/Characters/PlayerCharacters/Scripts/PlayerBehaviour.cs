@@ -10,18 +10,12 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
 
-    [Header("Events")]
-    public UnityEvent MakeRespawn;
-
     [Header("Movement")]
-    [SerializeField] float acceleration = 0.5f;
     [SerializeField] float maxVelocityX = 10.0f;
-    Vector2 rawMove;
+    private Vector2 rawMove;
 
     [Header("Jump")]
     [SerializeField] float jumpVelocity = 27f;
-    [SerializeField] float fallMultiplier = 3f;
-    [SerializeField] float lowJumpMultiplier = 2.5f;
     public LayerMask GroundLayer;
     bool canJump = true;
     bool isJumping = false;
@@ -92,7 +86,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    float secondsInTurning = 0;
     float secondsInJump = 0;
     void FixedUpdate()
     {
@@ -104,47 +97,14 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position + new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
             Debug.DrawRay(transform.GetComponentInChildren<BoxCollider>().transform.position - new Vector3(0.3f, 0f, 0f), Vector3.down * 0.5f, Color.red);
 
-            /*if (Mathf.Abs(rb.linearVelocity.x) > maxVelocityX) // Si el jugador pasa la velocidad máxima, se setea de nuevo a esta
-            {
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x > 0 ? maxVelocityX : -maxVelocityX, rb.linearVelocity.y, 0f);
-            }*/
-
-            //if (jump.action.triggered && canJump)
-            //{
-            //    //rb.AddForce(new Vector3(0f, jumpVelocity, 0f), ForceMode.Impulse);
-            //    isJumping = true;
-            //    canJump = false;
-            //}
-
             if (isJumping && secondsInJump < 0.5f && !isJumpingCanceled)
             {
                 secondsInJump += Time.deltaTime;
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpVelocity, 0f);
-            } else if (isJumping && secondsInJump >= 0.5f)
+            } else if (isJumping && secondsInJump >= 0.5f || (isJumping && isJumpingCanceled) || !CheckIsOnGround())
             {
-                //isJumping = false;
-                //secondsInJump = 0f;
-                //isJumpingCanceled = false;
                 CheckFalling();
-                //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime, 0f);
-                //rb.AddForce(new Vector3(0f, Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime, 0f), ForceMode.Impulse);
-            } else if ((isJumping && isJumpingCanceled) || !CheckIsOnGround())
-            {
-                //isJumping = false;
-                //secondsInJump = 0f;
-                //isJumpingCanceled = false;
-                CheckFalling();
-                //rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y + Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f);
-                //rb.AddForce(new Vector3(0f, Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime, 0f), ForceMode.VelocityChange);
-            }
-
-            //if (isJumpingCanceled)
-            //{
-            //    rb.AddForce(new Vector3(0f, -rb.linearVelocity.y, 0f), ForceMode.Impulse);
-            //    secondsInJump = 0f;
-            //    isJumpingCanceled = false;
-            //}
-
+            } 
             if (shouldTurnBack)
             {
                 transform.GetChild(0).rotation = Quaternion.Inverse(transform.GetChild(0).rotation);
@@ -157,36 +117,28 @@ public class PlayerBehaviour : MonoBehaviour
     bool shouldTurnBack = false;
     protected void Move(Vector3 direction)
     {
-        //rb.AddForce(direction * acceleration * Time.deltaTime, ForceMode.VelocityChange);
         rb.linearVelocity = new Vector3(direction.normalized.x * maxVelocityX, rb.linearVelocity.y, 0f);
-        //rb.linearVelocity = direction.normalized * maxVelocityX;
 
         if (direction.magnitude > 0f)
         {
             if (direction.normalized.x != lastMoveDirection.x)
             {
-                //transform.rotation = Quaternion.Inverse(transform.rotation);
-                //transform.localPosition = direction.x > 0 ? new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z) : new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z);
-                //animator.SetTrigger("TurnBack");
-                //transform.rotation = Quaternion.Inverse(transform.rotation);
                 rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
                 shouldTurnBack = true;
                 lastMoveDirection = direction;
             }
 
-            if (shouldTurnBack)
+            if (!shouldTurnBack)
             {
-                //animator.SetTrigger("TurnBack");
-                //rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
-            } else if (rb.linearVelocity.x == 0f)
-            {
-                rb.linearVelocity = new Vector3(5f * direction.normalized.x, rb.linearVelocity.y, 0f);
-            } else
-            {
-
-                animator.SetBool("IsMoving", true);
+                if (rb.linearVelocity.x == 0f)
+                {
+                    rb.linearVelocity = new Vector3(5f * direction.normalized.x, rb.linearVelocity.y, 0f);
+                }
+                else
+                {
+                    animator.SetBool("IsMoving", true);
+                }
             }
-            //shouldTurnBack = false;
         }
         else
         {
@@ -198,11 +150,6 @@ public class PlayerBehaviour : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         rawMove = context.action.ReadValue<Vector2>();  //Lee le valor de la acción que lo ha llamado, indicando que esperamos leer un Vector2
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //canJump = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -226,15 +173,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void OnDeath()
     {
-        Debug.Log("AUCH!");
-
         int selectedClip = Mathf.RoundToInt(UnityEngine.Random.Range(0f, damageClips.Length - 1));
 
         GetComponent<AudioSource>().clip = damageClips[selectedClip];
         GetComponent<AudioSource>().volume = 0.4f;
         GetComponent<AudioSource>().Play();
 
-        MakeRespawn.Invoke();
+        DataPersistanceManager.instance.LoadGame();
     }
 
     private bool CheckIsOnGround()

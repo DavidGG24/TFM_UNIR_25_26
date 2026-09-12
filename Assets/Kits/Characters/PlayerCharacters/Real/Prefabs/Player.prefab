@@ -520,7 +520,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &7594551315090816190
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -580,14 +580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBehaviour
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  MakeRespawn:
-    m_PersistentCalls:
-      m_Calls: []
-  acceleration: 10
   maxVelocityX: 5
   jumpVelocity: 6
-  fallMultiplier: 40
-  lowJumpMultiplier: 35
   GroundLayer:
     serializedVersion: 2
     m_Bits: 8

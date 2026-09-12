@@ -32,7 +32,6 @@ public class ActivatorBehaviour : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (jugadorDentro && activate.action.triggered)

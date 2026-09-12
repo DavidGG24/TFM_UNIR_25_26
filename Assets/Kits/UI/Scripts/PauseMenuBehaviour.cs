@@ -20,7 +20,7 @@ public class PauseMenuBehaviour : MonoBehaviour
     void Start()
     {
         continueButton.onClick.AddListener(ContinueGame);
-        settingsButton.onClick.AddListener(OpenSettings);
+        //settingsButton.onClick.AddListener(OpenSettings);
         returnButton.onClick.AddListener(ReturnToMenu);
     }
 
