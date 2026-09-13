@@ -67,4 +67,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeTutorialText
   tutorialText: Use WASD to move
+  tutorialGamepadText: Use left stick to move
   timeActive: 5

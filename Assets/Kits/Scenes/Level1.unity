@@ -3017,6 +3017,10 @@ PrefabInstance:
       propertyPath: tutorialText
       value: Press C to change
       objectReference: {fileID: 0}
+    - target: {fileID: 1266581688110633010, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
+      propertyPath: tutorialGamepadText
+      value: Press B button to change
+      objectReference: {fileID: 0}
     - target: {fileID: 6974516357138518591, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.78
@@ -50314,6 +50318,10 @@ PrefabInstance:
       propertyPath: tutorialText
       value: Hold E to activate
       objectReference: {fileID: 0}
+    - target: {fileID: 1266581688110633010, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
+      propertyPath: tutorialGamepadText
+      value: Hold Y button to activate
+      objectReference: {fileID: 0}
     - target: {fileID: 6120165291705482164, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
       propertyPath: m_Size.x
       value: 2.3695984
@@ -60129,6 +60137,14 @@ PrefabInstance:
     - target: {fileID: 1266581688110633010, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
       propertyPath: timeActive
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266581688110633010, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
+      propertyPath: tutorialText
+      value: Use arrow keys to move
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266581688110633010, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
+      propertyPath: tutorialGamepadText
+      value: Use left stick to move
       objectReference: {fileID: 0}
     - target: {fileID: 6120165291705482164, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
       propertyPath: m_Size.x
@@ -75230,6 +75246,10 @@ PrefabInstance:
     - target: {fileID: 1266581688110633010, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
       propertyPath: tutorialText
       value: Use spacebar to jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266581688110633010, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
+      propertyPath: tutorialGamepadText
+      value: Use A button to jump
       objectReference: {fileID: 0}
     - target: {fileID: 6974516357138518591, guid: 4f5066b0172291e42af6b30f073af0ef, type: 3}
       propertyPath: m_LocalPosition.x
