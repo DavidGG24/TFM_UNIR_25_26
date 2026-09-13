@@ -1,10 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static ChangeReality;
 
 public class ChangeTutorialText : MonoBehaviour
 {
     [SerializeField] string tutorialText;
+    [SerializeField] string tutorialGamepadText;
     [SerializeField] float timeActive;
 
     private TMP_Text playerText;
@@ -62,7 +64,13 @@ public class ChangeTutorialText : MonoBehaviour
         {
             Debug.Log("Ha entrado el player al tutorial de: " + tutorialText);
             playerText = other.transform.GetChild(other.transform.childCount - 1).GetComponentInChildren<TMP_Text>();
-            playerText.text = tutorialText;
+            if (Gamepad.all.Count > 0)
+            {
+                playerText.text = tutorialGamepadText;
+            } else
+            {
+                playerText.text = tutorialText;
+            }
             playerText.enabled = true;
             timeStarted = 99999999999999999999f;
             activated = true;
